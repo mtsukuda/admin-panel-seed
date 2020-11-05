@@ -1,0 +1,103 @@
+{
+  "componentName": "news-entertainment-20200907",
+  "import": [
+    {
+      "name": "CardTitle",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "CardSubtitle",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    }
+  ],
+  "tags": [
+    {
+      "tag": "CardTitle",
+      "props": [],
+      "content": "\"news entertainment title 20200907\""
+    },
+    {
+      "tag": "CardSubtitle",
+      "props": ["className=\"mb-3\""],
+      "content": "\"news entertainment service notice\""
+    },
+    {
+      "tag": "div",
+      "props": ["className=\"media mb-4\""],
+      "child": {
+        "tags": [
+          {
+            "tag": "img",
+            "props": ["className=\"d-flex align-self-start rounded mr-3\"", "src=\"https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFs-Knw39CLTsfp6KpenqJJAfQRbBTuU3XBr7Teh3UUfeLh8-p715i71yr8hTIPl61gwmOslh5Mh0ZP_Y40_y7yb2mpExKbJz7js5yua2VmBzjdjSzOUh-y1QnkX3ZKPFwQOzduWcNPNtBszclWvG_rg=\"", "alt=\"Skote\"", "width=\"64\""],
+            "noCR": "yes"
+          },
+          {
+            "tag": "div",
+            "props": ["className=\"media-body\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "h5",
+                  "props": ["className=\"mt-0 font-16\""],
+                  "content": "\"スッピンを披露したダレノガレ明美 - ダレノガレ明美「30代のスッピン」披露　好きなところは唇「もともとピンクなんです」\"",
+                  "noCR": "yes"
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"ダレノガレはノーメークのため、いつもより柔らかい表情カメラを見つめているが、口元はリップを塗ったような艶やかさ。しかし「私の顔で好きなパーツは口の色なの。もともとピンクなんです。母親とそっくりな場所」と説明した。ダレノガレは日系ブラジル人の父親と、イタリア系ブラジル人の母親の間に生まれている。\""
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"フォロワーも「羨ましいです」「お綺麗です」「素顔も素敵だ」「美しいです」「綺麗過ぎる」「口の色も凄く可愛いですね」と絶賛している。\""
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "tag": "div",
+      "props": ["className=\"media mb-4\""],
+      "child": {
+        "tags": [
+          {
+            "tag": "img",
+            "props": ["className=\"d-flex align-self-start rounded mr-3\"", "src=\"https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFs-Knw39CLTsfp6KpenqJJBu911pT1_bqR521a8JzMn4Fqso_9is-QQ6IE52xwN5yEIfNtLXM4DGYtsYsVDox7GdzvRH8gxYYbYELNK8DMvxRITqDTPB_fQYamHdR4RjgkHTnRBf137HOf7k1-h_PBdzdjURqlF1xJS1DxQyt6t4VMU23EikwgQXNDZvmWQx691ZI-t-naom3NIjgL2emis=\"", "alt=\"Skote\"", "width=\"64\""],
+            "single": "yes"
+          },
+          {
+            "tag": "div",
+            "props": ["className=\"media-body\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "h5",
+                  "props": ["className=\"mt-0 font-16\""],
+                  "content": "\"池田エライザ、へそ出しファッション披露し現在の体重に言及「健康が１番だよ」\"",
+                  "noCR": "yes"
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"女優でモデルの池田エライザ（２４）が７日までに自身のインスタグラムを更新。ファッションショーでのへそ出しファッションを披露するとともに、現在の体重について言及した。\""
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"５日にさいたまスーパーアリーナで行われた「東京ガールズコレクション　２０２０　ＡＵＴＵＭＮ／ＷＩＮＴＥＲ　ＯＮＬＩＮＥ」に出演した池田は「ＴＧＣ　ありがとうございました！」と感謝。ベージュのパンツスーツにお腹の見えるインナーを合わせ、ランウェーを歩く写真をアップした。\""
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

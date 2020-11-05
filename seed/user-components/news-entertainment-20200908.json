@@ -1,0 +1,140 @@
+{
+  "componentName": "news-entertainment-20200908",
+  "import": [
+    {
+      "name": "CardTitle",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "CardSubtitle",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    }
+  ],
+  "tags": [
+    {
+      "tag": "CardTitle",
+      "props": [],
+      "content": "\"news entertainment title 20200909\""
+    },
+    {
+      "tag": "CardSubtitle",
+      "props": ["className=\"mb-3\""],
+      "content": "\"news entertainment service notice\""
+    },
+    {
+      "tag": "div",
+      "props": ["className=\"media mb-4\""],
+      "child": {
+        "tags": [
+          {
+            "tag": "img",
+            "props": ["className=\"d-flex align-self-start rounded mr-3\"", "src=\"https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFs-Knw39CLTsfp6KpenqJJBMzkBqT42YOV6KLtEzqZzjQhmFs3NQT4eEurroUhC1vfo9_VHY6k-UZu7063FhqK34swW4Vqdz3OZBXatHVhmLjhPFgEZgwhJ30Bt8QnTjuA==\"", "alt=\"Skote\"", "width=\"64\""],
+            "noCR": "yes"
+          },
+          {
+            "tag": "div",
+            "props": ["className=\"media-body\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "h5",
+                  "props": ["className=\"mt-0 font-16\""],
+                  "content": "\"フジは坂上忍にすべてを賭けるのか…2年前の史上最大の改編に匹敵、10月改編の目玉は「バイキング」の1時間延長\"",
+                  "noCR": "yes"
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"この改編を名付けるなら、ずばり「坂上改編」だな―。7日、東京・台場の本社で行われたフジテレビの10月期の番組改編会見。その中身を聞いた瞬間、そんなことを思った。\""
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"今回の改編率は、全日帯（午前6時～深夜0時）33・1％、ゴールデン帯（午後7～10時）22・3％、プライム帯（午後7～11時）20・7％と大規模なもの。2018年4月、「みなさんのおかげでした」、「めちゃ×2イケてるッ！」といった看板バラエティー番組を一斉に終了させた「史上最大の改編」の際の全日28・2％、ゴールデン29・8％、プライム29・5％に匹敵する高い数字となった。\""
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "tag": "div",
+      "props": ["className=\"media mb-4\""],
+      "child": {
+        "tags": [
+          {
+            "tag": "img",
+            "props": ["className=\"d-flex align-self-start rounded mr-3\"", "src=\"https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFs-Knw39CLTsfp6KpenqJJBEhgzrxltbo-CAgqq3kpkee88t4Au7wzZ95Xt6rqqrVxU0RdB3HKDTJXOwoY0ReFAcVQOUClBoe_LgFidv2ggKQGbz5KwA8rGu-SlkkKk1z5WFaWWeI_9Zj1G6Lu2o3DrNItUT1ItJ09zz5gfulh2CaCpqLEPXNcquG56E05Bms1vqBF4g2Av4qp1WKWlJWSA=\"", "alt=\"Skote\"", "width=\"64\""],
+            "single": "yes"
+          },
+          {
+            "tag": "div",
+            "props": ["className=\"media-body\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "h5",
+                  "props": ["className=\"mt-0 font-16\""],
+                  "content": "\"「さまぁ～ず×さまぁ～ず」14年の歴史に幕、番組内でサプライズ発表　ネット悲しみ「ショック」\"",
+                  "noCR": "yes"
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"お笑いコンビ「さまぁ～ず」の冠番組、テレビ朝日「さまぁ～ず×さまぁ～ず」（月曜深夜2・21）が、今秋で終了となり14年の歴史に幕を下ろすことが7日深夜放送の番組内で発表された。\""
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"2007年4月から放送された同番組。放送曜日は変わりながらも今年で14年目を迎え、放送回数は600回を超えた。この日は番組史上最大のサプライズ発表としてオンエアされた。\""
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "tag": "div",
+      "props": ["className=\"media mb-4\""],
+      "child": {
+        "tags": [
+          {
+            "tag": "img",
+            "props": ["className=\"d-flex align-self-start rounded mr-3\"", "src=\"https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFs-Knw39CLTsfp6KpenqJJDBph9DswE2QV90OqNQRYAB33zUy6HlbeOeX1RhAU_xHFTTl4bR51FkI0CbD41Lk__JmuMDqlpRC2GPVrA9g_oq0H1ga6coHODa0Znq5u-b2ioJs7Io5BhfnRknp3TnT1JyRR9Z6d9P3PmF5AgYt40ksw9eXjfo0PCrTcvW8N_vLFoM7tmBEP9B9a2BT0N9MNA=\"", "alt=\"Skote\"", "width=\"64\""],
+            "single": "yes"
+          },
+          {
+            "tag": "div",
+            "props": ["className=\"media-body\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "h5",
+                  "props": ["className=\"mt-0 font-16\""],
+                  "content": "\"多部未華子 直前の緊急降板…「これ経」続編中止にNHKの混乱\"",
+                  "noCR": "yes"
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"《わたナギがなくなったら何を楽しみに生きればいいんだ　完全にロス》《わたナギ。終わってしまった。。ハッピーエンドで最後まで癒された。わたナギ2やってほしいな》\""
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"SNSでは多部未華子（31）主演のドラマ『私の家政夫ナギサさん』（TBS系）の終了を惜しむ声が次々と上がっている。\""
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

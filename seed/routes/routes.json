@@ -1,0 +1,460 @@
+{
+  "apps": [
+    {
+      "type": "single",
+      "name": "calendar",
+      "bx": "calendar",
+      "lifeCycleMethods": [
+        {
+          "methodName": "componentDidMount",
+          "code": "this.fetchAll();"
+        }
+      ],
+      "fetch": {
+        "format": "index-fetch-multi",
+        "apis": [
+          {
+            "name": "notice",
+            "api": "https://m5wy06e241.execute-api.ap-northeast-1.amazonaws.com/prod/api/notice",
+            "init": "{headers: {'x-api-key': '89449b8c-8dbf-4b55-9da4-b740c68318f0'}}"
+          },
+          {
+            "name": "files",
+            "api": "https://api.mocklets.com/mock68049/files"
+          }
+        ]
+      }
+    },
+    {
+      "type": "single",
+      "name": "attached-files",
+      "bx": "file-blank",
+      "lifeCycleMethods": [
+        {
+          "methodName": "componentDidMount",
+          "code": "this.fetchAll();"
+        }
+      ],
+      "fetch": {
+        "format": "index-fetch-multi",
+        "apis": [
+          {
+            "name": "files",
+            "api": "https://api.mocklets.com/mock68049/files"
+          }
+        ]
+      },
+      "layout": [
+        {
+          "frame": "layout-plane",
+          "components": [
+            {
+              "name": "FileList",
+              "from": "../../components/Common/FileList",
+              "type": "default",
+              "props": ["listTitle='Attached Files'","files={this.state.files}"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "single",
+      "noNavigation": "yes",
+      "name": "attached-file-detail",
+      "lifeCycleMethods": [
+        {
+          "methodName": "componentDidMount",
+          "code": "this.fetchAll();"
+        }
+      ],
+      "fetch": {
+        "format": "index-fetch-multi",
+        "apis": [
+          {
+            "name": "file",
+            "api": "https://api.mocklets.com/mock68049/file"
+          }
+        ]
+      },
+      "layout": [
+        {
+          "frame": "layout-row-col-card-cardbody",
+          "components": [
+            {
+              "name": "Specifications",
+              "from": "../../components/Common/Specifications",
+              "type": "default",
+              "props": ["title='File Specifications'","file={this.state.file}"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "single",
+      "name": "sales",
+      "bx": "bar-chart-alt-2",
+      "lifeCycleMethods": [
+        {
+          "methodName": "componentDidMount",
+          "code": "this.fetchAll();"
+        }
+      ],
+      "fetch": {
+        "format": "index-fetch-multi",
+        "apis": [
+          {
+            "name": "data",
+            "api": "https://api.mocklets.com/mock68049/data"
+          },
+          {
+            "name": "invoiceList",
+            "api": "https://api.mocklets.com/mock68049/invoice-list"
+          },
+          {
+            "name": "files",
+            "api": "https://api.mocklets.com/mock68049/files"
+          }
+        ]
+      },
+      "layout": [
+        {
+          "frame": "layout-row-col-card-cardbody",
+          "components": [
+            {
+              "name": "MDBDataTable",
+              "from": "mdbreact",
+              "type": "package",
+              "props": ["responsive", "striped", "bordered", "data={this.state.data}"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "parent",
+      "name": "status",
+      "bx": "flag",
+      "child": [
+        {
+          "type": "single",
+          "name": "status-list",
+          "lifeCycleMethods": [
+            {
+              "methodName": "componentDidMount",
+              "code": "this.fetchAll();"
+            }
+          ],
+          "fetch": {
+            "format": "index-fetch-multi",
+            "apis": [
+              {
+                "name": "activity",
+                "api": "https://api.mocklets.com/mock68049/activity"
+              }
+            ]
+          },
+          "layout": [
+            {
+              "frame": "layout-card-cardbody",
+              "components": [
+                {
+                  "name": "CardTitleKit",
+                  "from": "../../components/Common/CardTitleKit",
+                  "type": "default",
+                  "props": ["cardTitle='History Timeline'"]
+                },
+                {
+                  "name": "Timeline",
+                  "from": "../../components/Common/Timeline",
+                  "type": "default",
+                  "props": ["timeline={this.state.activity}"]
+                },
+                {
+                  "name": "AppsStatusStatusListButtons",
+                  "from": "../../components/UserCommon/AppsStatusStatusListButtons",
+                  "type": "default",
+                  "props": ["href='dashboard'"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "single",
+          "name": "status",
+          "layout": [
+            {
+              "frame": "layout-card-cardbody",
+              "components": [
+                {
+                  "name": "CardTitleKit",
+                  "from": "../../components/Common/CardTitleKit",
+                  "type": "default",
+                  "props": [
+                    "cardTitle='Modal Dialog'"
+                  ]
+                },
+                {
+                  "name": "AppsStatusStatusButton1",
+                  "from": "../../components/UserCommon/AppsStatusStatusButton1",
+                  "type": "default",
+                  "props": []
+                },
+                {
+                  "name": "AppsStatusStatusButton2",
+                  "from": "../../components/UserCommon/AppsStatusStatusButton2",
+                  "type": "default",
+                  "props": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "parent",
+      "name": "email",
+      "bx": "envelope",
+      "child": [
+        {
+          "type": "single",
+          "name": "inbox"
+        },
+        {
+          "type": "single",
+          "name": "read"
+        }
+      ]
+    },
+    {
+      "type": "parent",
+      "name": "ecommerce",
+      "bx": "store",
+      "child": [
+        {
+          "type": "single",
+          "name": "products"
+        },
+        {
+          "type": "single",
+          "name": "product-detail"
+        },
+        {
+          "type": "single",
+          "name": "orders"
+        },
+        {
+          "type": "single",
+          "name": "customers"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "type": "single",
+      "name": "entertainment",
+      "bx": "happy-heart-eyes",
+      "layout": [
+        {
+          "frame": "layout-plane",
+          "components": [
+            {
+              "name": "NewsEntertainmentList",
+              "from": "../../components/UserCommon/NewsEntertainmentList",
+              "type": "default",
+              "props": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "single",
+      "noNavigation": "yes",
+      "name": "news-entertainment-20200907",
+      "layout": [
+        {
+          "frame": "layout-card-cardbody",
+          "components": [
+            {
+              "name": "NewsEntertainment20200907",
+              "from": "../../components/UserCommon/NewsEntertainment20200907",
+              "type": "default",
+              "props": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "single",
+      "noNavigation": "yes",
+      "name": "news-entertainment-20200908",
+      "layout": [
+        {
+          "frame": "layout-card-cardbody",
+          "components": [
+            {
+              "name": "NewsEntertainment20200908",
+              "from": "../../components/UserCommon/NewsEntertainment20200908",
+              "type": "default",
+              "props": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "single",
+      "noNavigation": "yes",
+      "name": "news-entertainment-20200909",
+      "layout": [
+        {
+          "frame": "layout-card-cardbody",
+          "components": [
+            {
+              "name": "NewsEntertainment20200909",
+              "from": "../../components/UserCommon/NewsEntertainment20200909",
+              "type": "default",
+              "props": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "single",
+      "noNavigation": "yes",
+      "name": "news-entertainment-20200910",
+      "layout": [
+        {
+          "frame": "layout-card-cardbody",
+          "components": [
+            {
+              "name": "NewsEntertainment20200910",
+              "from": "../../components/UserCommon/NewsEntertainment20200910",
+              "type": "default",
+              "props": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "single",
+      "noNavigation": "yes",
+      "name": "news-entertainment-20200911",
+      "layout": [
+        {
+          "frame": "layout-card-cardbody",
+          "components": [
+            {
+              "name": "NewsEntertainment20200911",
+              "from": "../../components/UserCommon/NewsEntertainment20200911",
+              "type": "default",
+              "props": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "single",
+      "name": "politics",
+      "bx": "message-square-dots",
+      "layout": [
+        {
+          "frame": "layout-plane",
+          "components": [
+            {
+              "name": "NewsPoliticsList",
+              "from": "../../components/UserCommon/NewsPoliticsList",
+              "type": "default",
+              "props": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "single",
+      "name": "breaking-news",
+      "bx": "news"
+    }
+  ],
+  "menux": [
+    {
+      "type": "single",
+      "name": "menuxx",
+      "bx": "receipt"
+    },
+    {
+      "type": "single",
+      "name": "menuxxx",
+      "bx": "briefcase-alt-2"
+    },
+    {
+      "type": "parent",
+      "name": "maps",
+      "bx": "map",
+      "child": [
+        {
+          "type": "single",
+          "name": "google-maps"
+        },
+        {
+          "type": "single",
+          "name": "vector-maps"
+        },
+        {
+          "type": "single",
+          "name": "leaflet-maps"
+        }
+      ]
+    },
+    {
+      "type": "parent",
+      "name": "ecommerce",
+      "bx": "list-ul",
+      "child": [
+        {
+          "type": "single",
+          "name": "products"
+        },
+        {
+          "type": "single",
+          "name": "product-detail"
+        },
+        {
+          "type": "single",
+          "name": "orders"
+        },
+        {
+          "type": "single",
+          "name": "customers"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "single",
+      "name": "profile",
+      "bx": "user-circle"
+    },
+    {
+      "type": "single",
+      "name": "my-wallet",
+      "bx": "user-circle"
+    },
+    {
+      "type": "single",
+      "name": "settings",
+      "bx": "user-circle"
+    }
+  ]
+}

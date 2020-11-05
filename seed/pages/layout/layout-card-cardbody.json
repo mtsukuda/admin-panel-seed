@@ -1,0 +1,16 @@
+{
+  "components": [
+    {
+      "name": "Card",
+      "from": "reactstrap",
+      "type": "package",
+      "importOnly": "yes"
+    },
+    {
+      "name": "CardBody",
+      "from": "reactstrap",
+      "type": "package",
+      "importOnly": "yes"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "componentName": "news-entertainment-20200911",
+  "import": [
+    {
+      "name": "CardTitle",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "CardSubtitle",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    }
+  ],
+  "tags": [
+    {
+      "tag": "CardTitle",
+      "props": [],
+      "content": "\"news entertainment title 20200911\""
+    },
+    {
+      "tag": "CardSubtitle",
+      "props": ["className=\"mb-3\""],
+      "content": "\"news entertainment service notice\""
+    },
+    {
+      "tag": "div",
+      "props": ["className=\"media mb-4\""],
+      "child": {
+        "tags": [
+          {
+            "tag": "img",
+            "props": ["className=\"d-flex align-self-start rounded mr-3\"", "src=\"https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFs-Knw39CLTsfp6KpenqJJApBTepQEm-XlTDoKv3Z9zYHpQRlhfAV9oo3qmuQUTVhA5tprfgEx21PMvtcdmmpMxPqb0eLsgZRGzSxbxARzQFh4Y--wKW78wllQ8HrbjVAA==\"", "alt=\"Skote\"", "width=\"64\""],
+            "noCR": "yes"
+          },
+          {
+            "tag": "div",
+            "props": ["className=\"media-body\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "h5",
+                  "props": ["className=\"mt-0 font-16\""],
+                  "content": "\"news entertainment news 20200911-1 title\"",
+                  "noCR": "yes"
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"news entertainment news 20200911-1 p1\""
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"news entertainment news 20200911-1 p2\""
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "tag": "div",
+      "props": ["className=\"media mb-4\""],
+      "child": {
+        "tags": [
+          {
+            "tag": "img",
+            "props": ["className=\"d-flex align-self-start rounded mr-3\"", "src=\"https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFs-Knw39CLTsfp6KpenqJJApBTepQEm-XlTDoKv3Z9zY0m1LW92WCuVanup0mxDGe4etQqIx1cQaihM_Ujt-L08goiLGJcDKyweB1PzSNDp9lUw04AHZNY5F4D55klBkmA==\"", "alt=\"Skote\"", "width=\"64\""],
+            "single": "yes"
+          },
+          {
+            "tag": "div",
+            "props": ["className=\"media-body\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "h5",
+                  "props": ["className=\"mt-0 font-16\""],
+                  "content": "\"news entertainment news 20200911-2 title\"",
+                  "noCR": "yes"
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"news entertainment news 20200911-2 p1\""
+                },
+                {
+                  "tag": "p",
+                  "props": [],
+                  "content": "\"news entertainment news 20200911-2 p2\""
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

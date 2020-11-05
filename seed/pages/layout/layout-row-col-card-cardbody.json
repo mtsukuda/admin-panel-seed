@@ -1,0 +1,28 @@
+{
+  "components": [
+    {
+      "name": "Row",
+      "from": "reactstrap",
+      "type": "package",
+      "importOnly": "yes"
+    },
+    {
+      "name": "Col",
+      "from": "reactstrap",
+      "type": "package",
+      "importOnly": "yes"
+    },
+    {
+      "name": "Card",
+      "from": "reactstrap",
+      "type": "package",
+      "importOnly": "yes"
+    },
+    {
+      "name": "CardBody",
+      "from": "reactstrap",
+      "type": "package",
+      "importOnly": "yes"
+    }
+  ]
+}

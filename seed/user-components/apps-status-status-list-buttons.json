@@ -1,0 +1,49 @@
+{
+  "componentName": "AppsStatusStatusListButtons",
+  "import": [
+    {
+      "name": "Link",
+      "type": "package",
+      "from": "react-router-dom",
+      "props": []
+    }
+  ],
+  "tags": [
+    {
+      "tag": "div",
+      "props": ["className='text-center mt-5 m-3'"],
+      "child": {
+        "tags": [
+          {
+            "tag": "Link",
+            "props": ["to={this.props.href}", "className='btn btn-primary waves-effect waves-light mr-1'"],
+            "child": {
+              "tags": [
+                {
+                  "tag": "i",
+                  "noCR": "yes",
+                  "props": ["className='bx bx-book-heart font-size-16 align-middle mr-2'"],
+                  "contentAT": "'Button 001'"
+                }
+              ]
+            }
+          },
+          {
+            "tag": "Link",
+            "props": ["to={this.props.href}", "className='btn btn-light waves-effect waves-light'"],
+            "child": {
+              "tags": [
+                {
+                  "tag": "i",
+                  "noCR": "yes",
+                  "props": ["className='bx bx bx-recycle font-size-16 align-middle mr-2'"],
+                  "contentAT": "'Button 002'"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

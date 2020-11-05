@@ -1,0 +1,163 @@
+{
+  "componentName": "news-politics-list",
+  "import": [
+    {
+      "name": "Row",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "Col",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    }
+  ],
+  "tags": [
+    {
+      "tag": "Row",
+      "props": [],
+      "child": {
+        "tags": [
+          {
+            "tag": "Col",
+            "props": ["lg=\"12\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "div",
+                  "props": ["className=\"list-group\""],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "a",
+                        "props": ["href=\"news-news-entertainment-20200909\"", "class=\"list-group-item list-group-item-action flex-column align-items-start\""],
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "div",
+                              "props": ["class=\"d-flex w-100 justify-content-between\""],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "h5",
+                                    "props": ["class=\"mb-1\""],
+                                    "noCR": "yes",
+                                    "content": "\"9月9日のYahoo!ニュース - おのののか＆競泳リオ五輪代表・塩浦慎理が結婚発表！\""
+                                  },
+                                  {
+                                    "tag": "small",
+                                    "props": [],
+                                    "noCR": "yes",
+                                    "content": "\"昨日\""
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "tag": "p",
+                              "props": ["class=\"mb-1\""],
+                              "noCR": "yes",
+                              "content": "\"タレントのおのののか（28）と2016年リオデジャネイロ競泳男子五輪代表の塩浦慎理（28、イトマン東進）が9日、結婚を発表した。\""
+                            },
+                            {
+                              "tag": "small",
+                              "props": [],
+                              "noCR": "yes",
+                              "content": "\"続きを読む\""
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "tag": "a",
+                        "props": ["href=\"news-news-entertainment-20200908\"", "class=\"list-group-item list-group-item-action flex-column align-items-start\""],
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "div",
+                              "props": ["class=\"d-flex w-100 justify-content-between\""],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "h5",
+                                    "props": ["class=\"mb-1\""],
+                                    "noCR": "yes",
+                                    "content": "\"9月8日のYahoo!ニュース - フジは坂上忍にすべてを賭けるのか...\""
+                                  },
+                                  {
+                                    "tag": "small",
+                                    "props": [],
+                                    "noCR": "yes",
+                                    "content": "\"2日前\""
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "tag": "p",
+                              "props": ["class=\"mb-1\""],
+                              "noCR": "yes",
+                              "content": "\"2年前の史上最大の改編に匹敵、10月改編の目玉は「バイキング」の1時間延長\""
+                            },
+                            {
+                              "tag": "small",
+                              "props": [],
+                              "noCR": "yes",
+                              "content": "\"続きを読む\""
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "tag": "a",
+                        "props": ["href=\"news-news-entertainment-20200907\"", "class=\"list-group-item list-group-item-action flex-column align-items-start\""],
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "div",
+                              "props": ["class=\"d-flex w-100 justify-content-between\""],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "h5",
+                                    "props": ["class=\"mb-1\""],
+                                    "noCR": "yes",
+                                    "content": "\"9月7日のYahoo!ニュース - スッピンを披露したダレノガレ明美\""
+                                  },
+                                  {
+                                    "tag": "small",
+                                    "props": [],
+                                    "noCR": "yes",
+                                    "content": "\"3日前\""
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "tag": "p",
+                              "props": ["class=\"mb-1\""],
+                              "noCR": "yes",
+                              "content": "\"ダレノガレ明美「30代のスッピン」披露　好きなところは唇「もともとピンクなんです」\""
+                            },
+                            {
+                              "tag": "small",
+                              "props": [],
+                              "noCR": "yes",
+                              "content": "\"続きを読む\""
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

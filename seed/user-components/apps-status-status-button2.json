@@ -1,0 +1,152 @@
+{
+  "componentName": "AppsStatusStatusButton2",
+  "import": [
+    {
+      "name": "Modal",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "ModalHeader",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "ModalBody",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "ModalFooter",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "Button",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "toastr",
+      "from": "toastr",
+      "type": "default",
+      "props": []
+    },
+    {
+      "name": "'toastr/build/toastr.min.css'",
+      "type": "css"
+    }
+  ],
+  "tags": [
+    {
+      "tag": "div",
+      "props": ["className='text-center mt-5 m-3'"],
+      "child": {
+        "tags": [
+          {
+            "tag": "Button",
+            "props": ["type=\"button\"", "className='btn btn-primary waves-effect waves-light mr-1'", "onClick={this.toggleModal}"],
+            "child": {
+              "tags": [
+                {
+                  "tag": "i",
+                  "noCR": "yes",
+                  "props": ["className='bx bx-drink font-size-16 align-middle mr-2'"],
+                  "contentAT": "'Modal It!'"
+                }
+              ]
+            }
+          },
+          {
+            "tag": "Modal",
+            "componentMethod": {
+              "states": [
+                { "name": "modal", "initial": false }
+              ],
+              "methods": [
+                { "name": "toggleModal", "bind": false, "methodType": "modal", "state": "modal", "args": [] },
+                { "name": "selectSave", "bind": false, "methodType": "post", "args": [], "targetURL": "https://api.mocklets.com/mock68049/update1", "body": "JSON.stringify({name: 'Hubot', login: 'hubot'})", "status200Code": "", "statusOtherCode": "","responseSucceedCode": "this.toggleModal();this.showToast(\"success\");", "responseFailedCode": "this.toggleModal();this.showToast(\"error\");" },
+                { "name": "showToast", "bind": false, "methodType": "plane", "args": ["toastType"], "code": "toastr.options={positionClass:\"toast-top-right\",timeOut:5000,extendedTimeOut:1000,closeButton:false,debug:false,progressBar:true,preventDuplicates:false,newestOnTop:true,showEasing:\"swing\",hideEasing:\"linear\",showMethod:\"fadeIn\",hideMethod:\"fadeOut\",showDuration:300,hideDuration:1000};if (toastType===\"success\")toastr.success(this.props.t(\"The process has succeed.\"),this.props.t(\"Done\"));else if (toastType===\"error\")toastr.error(this.props.t(\"The process has failed...\"),this.props.t(\"Error\"));" }
+              ]
+            },
+            "props": ["isOpen={this.state.modal}", "toggle={this.toggleModal}", "role=\"dialog\"", "autoFocus={true}", "centered={true}", "className=\"exampleModal\"", "tabIndex=\"-1\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "div",
+                  "props": ["className='modal-content'"],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "ModalHeader",
+                        "props": ["toggle={this.toggleModal}"],
+                        "content": "\"Order Details\""
+                      },
+                      {
+                        "tag": "ModalBody",
+                        "props": [],
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "p",
+                              "noCR": "yes",
+                              "props": ["className=\"mb-2\""],
+                              "content": "\"Product id: \"",
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "span",
+                                    "noCR": "yes",
+                                    "props": ["className=\"text-primary\""],
+                                    "content": "\"#SK2540\""
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "tag": "ModalFooter",
+                        "props": [],
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "Button",
+                              "noCR": "yes",
+                              "props": [
+                                "type=\"button\"",
+                                "color=\"primary\"",
+                                "onClick={this.selectSave}"
+                              ],
+                              "content": "\"Save\""
+                            },
+                            {
+                              "tag": "Button",
+                              "noCR": "yes",
+                              "props": [
+                                "type=\"button\"",
+                                "color=\"secondary\"",
+                                "onClick={this.toggleModal}"
+                              ],
+                              "content": "\"Close\""
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

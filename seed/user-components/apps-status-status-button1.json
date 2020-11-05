@@ -1,0 +1,130 @@
+{
+  "componentName": "AppsStatusStatusButton1",
+  "import": [
+    {
+      "name": "Modal",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "ModalHeader",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "ModalBody",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "ModalFooter",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "Button",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    }
+  ],
+  "tags": [
+    {
+      "tag": "div",
+      "props": ["className='text-center mt-5 m-3'"],
+      "child": {
+        "tags": [
+          {
+            "tag": "Button",
+            "props": ["type=\"button\"", "className='btn btn-primary waves-effect waves-light mr-1'", "onClick={this.toggleModal}"],
+            "child": {
+              "tags": [
+                {
+                  "tag": "i",
+                  "noCR": "yes",
+                  "props": ["className='bx bx-comment-check font-size-16 align-middle mr-2'"],
+                  "contentAT": "'Modal It!'"
+                }
+              ]
+            }
+          },
+          {
+            "tag": "Modal",
+            "componentMethod": {
+              "states": [
+                { "name": "modal", "initial": false }
+              ],
+              "methods": [
+                { "name": "toggleModal", "bind": false, "methodType": "modal", "state": "modal" }
+              ]
+            },
+            "props": ["isOpen={this.state.modal}", "toggle={this.toggleModal}", "role=\"dialog\"", "autoFocus={true}", "centered={true}", "className=\"exampleModal\"", "tabIndex=\"-1\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "div",
+                  "props": ["className='modal-content'"],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "ModalHeader",
+                        "props": ["toggle={this.toggleModal}"],
+                        "content": "\"Order Details\""
+                      },
+                      {
+                        "tag": "ModalBody",
+                        "props": [],
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "p",
+                              "noCR": "yes",
+                              "props": ["className=\"mb-2\""],
+                              "content": "\"Product id: \"",
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "span",
+                                    "noCR": "yes",
+                                    "props": ["className=\"text-primary\""],
+                                    "content": "\"#SK2540\""
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "tag": "ModalFooter",
+                        "props": [],
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "Button",
+                              "noCR": "yes",
+                              "props": [
+                                "type=\"button\"",
+                                "color=\"secondary\"",
+                                "onClick={this.toggleModal}"
+                              ],
+                              "content": "\"Close\""
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
