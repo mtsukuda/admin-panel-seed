@@ -228,20 +228,17 @@ let _htmlTagRecursive = function (sauceJSON, tags, closeTag) {
 
 let _tagToHtml = function (tags) {
   let result = '';
-  // let tagDepth = 4;
   let beforeTag = "none";
   let isBeforeSingle = undefined;
   _.forEach(tags, (tag, i) => {
     if (tag.open && _.isUndefined(isBeforeSingle)) {
-      // if (beforeTag === "open") tagDepth++;
       beforeTag = "open";
     }
     if (tag.close) {
-      // if (beforeTag === "close") tagDepth--;
       beforeTag = "close";
     }
     let cr = (i > 0 ? '\n' : '');
-    let space = _.isUndefined(tag.noCR) ? cr /*+ SP(tagDepth)*/ : '';
+    let space = _.isUndefined(tag.noCR) ? cr : '';
     result += space + _htmlTag2(tag);
     isBeforeSingle = tag.single;
   });
