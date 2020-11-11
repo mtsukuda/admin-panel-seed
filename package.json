@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.1.4",
     "@fullcalendar/bootstrap": "^4.3.0",
     "@fullcalendar/daygrid": "^4.3.0",
     "@fullcalendar/interaction": "^4.3.0",
@@ -23,7 +22,7 @@
     "chart.js": "^2.9.3",
     "chartist": "^0.11.4",
     "dotenv": "^8.2.0",
-    "draft-js": "^0.11.4",
+    "draft-js": "^0.11.7",
     "echarts": "^4.7.0",
     "echarts-for-react": "^2.0.15-beta.1",
     "firebase": "^7.11.0",
@@ -119,8 +118,9 @@
   "devDependencies": {
     "dotenv-cli": "^3.2.0",
     "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
     "gulp-merge-json": "^2.1.1",
     "lodash": "^4.17.19",
-    "prettier": "^2.1.0"
+    "prettier": "^2.1.2"
   }
 }
