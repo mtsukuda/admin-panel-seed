@@ -210,7 +210,6 @@ let _htmlTagRecursive = function (sauceJSON, tags, closeTag, type) {
       if (_.isUndefined(component.content) === false) openTagSet['content'] = component.content;
       if (_.isUndefined(component.single) === false) openTagSet['single'] = component.single;
       tags.push(openTagSet);
-      // tags.push({"props": _componentProperties(component)});
       if (_.isUndefined(component.child) === false) {
         _htmlTagRecursive(component.child, tags, closeTag, component.type);
       } else if (_.isUndefined(component.single) === true) {
@@ -218,7 +217,6 @@ let _htmlTagRecursive = function (sauceJSON, tags, closeTag, type) {
         if (_.isUndefined(component.tag) === false) closeTagSet['close'] = component.tag;
         if (_.isUndefined(component.noCR) === false) closeTagSet['noCR'] = component.noCR;
         if (_.isUndefined(component.contentAT) === false) closeTagSet['contentAfterTag'] = component.contentAT;
-        // if (_.isUndefined(component.single) === false) closeTagSet['single'] = component.single;
         if (_.isEmpty(closeTagSet) === false) tags.push(closeTagSet);
       }
     });
@@ -226,7 +224,6 @@ let _htmlTagRecursive = function (sauceJSON, tags, closeTag, type) {
     if (_.isUndefined(closeTag) === false) closeTagSet['close'] = closeTag;
     if (_.isUndefined(type) === false) closeTagSet['type'] = type;
     if (_.isEmpty(closeTagSet) === false) tags.push(closeTagSet);
-    //tags.push({"close": closeTag});
   }
 }
 
