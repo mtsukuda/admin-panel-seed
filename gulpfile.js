@@ -200,16 +200,19 @@ let _cleanDirectories = function (targetPath) {
   });
 }
 
-let _htmlTagRecursive = function (sauceJSON, tags, closeTag) {
+let _htmlTagRecursive = function (sauceJSON, tags, closeTag, type) {
   if (_.isUndefined(sauceJSON.tags) === false) {
     _.forEach(sauceJSON.tags, (component) => {
       let openTagSet = {"open": component.tag, "props": _componentProperties(component)};
+      let closeTag = component.tag;
+      if (_.isUndefined(component.type) === false) openTagSet['type'] = component.type;
+      if (_.isUndefined(component.close) === false) closeTag = component.close;
       if (_.isUndefined(component.content) === false) openTagSet['content'] = component.content;
       if (_.isUndefined(component.single) === false) openTagSet['single'] = component.single;
       tags.push(openTagSet);
       // tags.push({"props": _componentProperties(component)});
       if (_.isUndefined(component.child) === false) {
-        _htmlTagRecursive(component.child, tags, component.tag);
+        _htmlTagRecursive(component.child, tags, closeTag, component.type);
       } else if (_.isUndefined(component.single) === true) {
         let closeTagSet = {};
         if (_.isUndefined(component.tag) === false) closeTagSet['close'] = component.tag;
@@ -221,6 +224,7 @@ let _htmlTagRecursive = function (sauceJSON, tags, closeTag) {
     });
     let closeTagSet = {};
     if (_.isUndefined(closeTag) === false) closeTagSet['close'] = closeTag;
+    if (_.isUndefined(type) === false) closeTagSet['type'] = type;
     if (_.isEmpty(closeTagSet) === false) tags.push(closeTagSet);
     //tags.push({"close": closeTag});
   }
@@ -239,18 +243,28 @@ let _tagToHtml = function (tags) {
     }
     let cr = (i > 0 ? '\n' : '');
     let space = _.isUndefined(tag.noCR) ? cr : '';
-    result += space + _htmlTag2(tag);
+    result += space + (tag.type === "raw" ? _rawTag(tag) : _htmlTag(tag));
     isBeforeSingle = tag.single;
   });
   return result;
 }
 
-let _htmlTag2 = function (tag) {
+let _htmlTag = function (tag) {
   let result = '';
   if (tag.open) {
     result = `<${tag.open}${tag.props}${(tag.single?' /':'')}>` + (tag.content?`{this.props.t(${tag.content})}`:'');
   } else if (tag.close) {
     result = (tag.single?'':`</${tag.close}>`) + (tag.contentAfterTag?`{this.props.t(${tag.contentAfterTag})}`:'');
+  }
+  return result;
+}
+
+let _rawTag = function (tag) {
+  let result = '';
+  if (tag.open) {
+    result = `${tag.open}`;
+  } else if (tag.close) {
+    result = `${tag.close}`;
   }
   return result;
 }
