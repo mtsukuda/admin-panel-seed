@@ -44,6 +44,8 @@ gulp.task('create-user-components', function (done) {
     userComponentSet['html'] = _tagToHtml(tags);
     userComponentSet['import'] = userComponentJSON.import;
     userComponentSet['methods'] = componentMethods;
+    userComponentSet['fetch'] = userComponentJSON.fetch;
+    userComponentSet['lifeCycleMethods'] = userComponentJSON.lifeCycleMethods;
     userComponents.push(userComponentSet);
   });
   _createUserComponentFile(userComponents);
@@ -303,12 +305,21 @@ let _createUserComponentFile = function (userComponents, prefix='') {
       _dedupeDefaultImportComponents(component, userComponentDefaultImportComponents);
       _dedupeImportCss(component, userImportCss);
     });
+    let fetchData = _userPageIndexFetchData(userComponentSet);
+    fileBuffer = _replaceTag('FETCH_DATA', fetchData, fileBuffer);
     let userComponentConstructor = _componentConstructor(
           _componentState(userComponentSet.methods),
           _componentBindFunction(userComponentSet.methods));
+    if (fetchData.length > 0 && userComponentConstructor.length === 0) {
+      userComponentConstructor = _basicConstructor();
+    }
     fileBuffer = _replaceTag('COMOPNENT_CONSTRUCTOR', userComponentConstructor, fileBuffer);
+    let lifeCycleMethod = _userPageIndexLifeCycleMethod(userComponentSet);
+    fileBuffer = _replaceTag('LIFE_CYCLE_METHOD', lifeCycleMethod, fileBuffer);
     let userComponentMethod = _componentMethod(userComponentSet.methods);
     fileBuffer = _replaceTag('COMOPNENT_FUNCTION', userComponentMethod, fileBuffer);
+    let renderFetchDone = _userPageIndexFetchDone(userComponentSet);
+    fileBuffer = _replaceTag('RENDER_FETCHDONE', renderFetchDone, fileBuffer);
     let userComponentImportDeclaration = _importComponentDeclaration(userComponentImportComponents);
     fileBuffer = _replaceTag('IMPORT_COMPONENTS', userComponentImportDeclaration, fileBuffer);
     let userComopnentDefaultImportDeclaration = _importDefaultImportComponentDeclaration(userComponentDefaultImportComponents);
@@ -547,7 +558,7 @@ let _createUserPageIndexFile = function (pageDirectories, prefix='') {
     fileBuffer = _replaceTag('IMPORT_COMPONENTS', pageImportDeclaration, fileBuffer);
     let pageDefaultImportDeclaration = _importDefaultImportComponentDeclaration(pageDefaultImportComponents);
     fileBuffer = _replaceTag('DEFAULT_IMPORT_COMPONENTS', pageDefaultImportDeclaration, fileBuffer);
-    let pageConstructor = _pageConstructor();
+    let pageConstructor = _basicConstructor();
     fileBuffer = _replaceTag('PAGE_CONSTRUCTOR', pageConstructor, fileBuffer);
     fileBuffer = _replaceTag('PAGE_LAYOUT', pageLayout, fileBuffer);
     _writeDistFile(_distFilePath(indexFilePath), fileBuffer);
@@ -622,7 +633,7 @@ let _importDefaultImportComponentDeclaration = function (userPageDefaultImportCo
   return result;
 }
 
-let _pageConstructor = function () {
+let _basicConstructor = function () {
   return `
   constructor(props) {
     super(props);
