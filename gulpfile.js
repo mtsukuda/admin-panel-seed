@@ -210,6 +210,7 @@ let _htmlTagRecursive = function (sauceJSON, tags, closeTag, type) {
       if (_.isUndefined(component.type) === false) openTagSet['type'] = component.type;
       if (_.isUndefined(component.close) === false) closeTag = component.close;
       if (_.isUndefined(component.content) === false) openTagSet['content'] = component.content;
+      if (_.isUndefined(component.rawContent) === false) openTagSet['rawContent'] = component.rawContent;
       if (_.isUndefined(component.single) === false) openTagSet['single'] = component.single;
       tags.push(openTagSet);
       if (_.isUndefined(component.child) === false) {
@@ -219,6 +220,7 @@ let _htmlTagRecursive = function (sauceJSON, tags, closeTag, type) {
         if (_.isUndefined(component.tag) === false) closeTagSet['close'] = component.tag;
         if (_.isUndefined(component.noCR) === false) closeTagSet['noCR'] = component.noCR;
         if (_.isUndefined(component.contentAT) === false) closeTagSet['contentAfterTag'] = component.contentAT;
+        if (_.isUndefined(component.rawContent) === false) closeTagSet['rawContent'] = component.rawContent;
         if (_.isEmpty(closeTagSet) === false) tags.push(closeTagSet);
       }
     });
@@ -251,11 +253,19 @@ let _tagToHtml = function (tags) {
 let _htmlTag = function (tag) {
   let result = '';
   if (tag.open) {
-    result = `<${tag.open}${tag.props}${(tag.single?' /':'')}>` + (tag.content?`{this.props.t(${tag.content})}`:'');
+    result = `<${tag.open}${tag.props}${(tag.single?' /':'')}>` + (tag.content?(_rawContent(tag, tag.content)):'');
   } else if (tag.close) {
-    result = (tag.single?'':`</${tag.close}>`) + (tag.contentAfterTag?`{this.props.t(${tag.contentAfterTag})}`:'');
+    result = (tag.single?'':`</${tag.close}>`) + (tag.contentAfterTag?(_rawContent(tag, tag.contentAfterTag)):'');
   }
   return result;
+}
+
+let _rawContent = function (tag, content) {
+  if (tag.rawContent === 'yes') {
+    return content;
+  } else {
+    return `{this.props.t(${content})}`;
+  }
 }
 
 let _rawTag = function (tag) {
