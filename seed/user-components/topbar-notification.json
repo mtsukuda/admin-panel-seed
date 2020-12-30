@@ -1,0 +1,260 @@
+{
+  "componentName": "notice-list",
+  "import": [
+    {
+      "name": "Link",
+      "from": "react-router-dom",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "Dropdown",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "DropdownToggle",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "DropdownMenu",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "Row",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "Col",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "SimpleBar",
+      "from": "simplebar-react",
+      "type": "default",
+      "props": []
+    }
+  ],
+  "lifeCycleMethods": [
+    {
+      "methodName": "componentDidMount",
+      "code": "this.fetchAll();"
+    }
+  ],
+  "fetch": {
+    "format": "index-fetch-multi",
+    "apis": [
+      {
+        "name": "notice",
+        "api": "https://m5wy06e241.execute-api.ap-northeast-1.amazonaws.com/prod/api/notice",
+        "init": "{headers: {'x-api-key': '89449b8c-8dbf-4b55-9da4-b740c68318f0'}}"
+      }
+    ]
+  },
+  "tags": [
+    {
+      "tag": "Dropdown",
+      "componentMethod": {
+        "states": [
+          { "name": "menu", "initial": false }
+        ],
+        "methods": [
+          { "name": "toggle", "bind": false, "methodType": "modal", "state": "menu", "args": [] }
+        ]
+      },
+      "props": ["isOpen={this.state.menu}", "toggle={this.toggle}", "className=\"dropdown d-inline-block\"", "tag=\"li\""],
+      "child": {
+        "tags": [
+          {
+            "tag": "DropdownToggle",
+            "props": ["className=\"btn header-item noti-icon waves-effect\"", "tag=\"button\"", "id=\"page-header-notifications-dropdown\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "i",
+                  "noCR": "yes",
+                  "props": ["className=\"bx bx-bell bx-tada\""]
+                },
+                {
+                  "tag": "span",
+                  "noCR": "yes",
+                  "props": ["className=\"badge badge-danger badge-pill\""],
+                  "content": "{this.state.notice.map().size}",
+                  "rawContent": "yes"
+                }
+              ]
+            }
+          },
+          {
+            "tag": "DropdownMenu",
+            "props": ["className=\"dropdown-menu dropdown-menu-lg p-0\"", "right"],
+            "child": {
+              "tags": [
+                {
+                  "tag": "div",
+                  "props": ["className=\"p-3\""],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "Row",
+                        "props": ["className=\"align-items-center\""],
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "Col",
+                              "props": [],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "h6",
+                                    "props": ["className=\"m-0\""],
+                                    "noCR": "yes",
+                                    "content": "'Notifications'"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "tag": "div",
+                              "props": ["className=\"col-auto\""],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "a",
+                                    "props": ["href=\"#!\"", "className=\"small\""],
+                                    "noCR": "yes",
+                                    "content": "'View All'"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "tag": "SimpleBar",
+            "props": [
+              "style={{ height: \"230px\" }}"
+            ],
+            "child": {
+              "tags": [
+                {
+                  "tag": "{",
+                  "close": "}",
+                  "type": "raw",
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "this.state.notice.map((line, i) =>",
+                        "close": ")",
+                        "type": "raw",
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "Link",
+                              "props": ["to=\"\"", "className=\"text-reset notification-item\""],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "div",
+                                    "props": ["className=\"media\""],
+                                    "child": {
+                                      "tags": [
+                                        {
+                                          "tag": "div",
+                                          "props": ["className=\"avatar-xs mr-3\""],
+                                          "child": {
+                                            "tags": [
+                                              {
+                                                "tag": "span",
+                                                "props": ["className=\"avatar-title bg-primary rounded-circle font-size-16\""],
+                                                "child": {
+                                                  "tags": [
+                                                    {
+                                                      "tag": "i",
+                                                      "props": ["className=\"bx bx-cart\""],
+                                                      "single": "yes"
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "props": ["className=\"media-body\""],
+                                    "child": {
+                                      "tags": [
+                                        {
+                                          "tag": "h6",
+                                          "props": ["className=\"mt-0 mb-1\""],
+                                          "content": "{line.title}",
+                                          "rawContent": "yes"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "props": ["className=\"font-size-12 text-muted\""],
+                                    "child": {
+                                      "tags": [
+                                        {
+                                          "tag": "p",
+                                          "props": ["className=\"mb-1\""],
+                                          "content": "{line.p1}",
+                                          "rawContent": "yes"
+                                        },
+                                        {
+                                          "tag": "p",
+                                          "props": ["className=\"mb-0\""],
+                                          "child": {
+                                            "tags": [
+                                              {
+                                                "tag": "i",
+                                                "props": ["className=\"mdi mdi-clock-outline\""],
+                                                "noCR": "yes",
+                                                "contentAT": "'3 min ago'"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -9,6 +9,7 @@
     * props []
   * lifeCycleMethods
   * fetch
+  * renderBeforeReturn []
   * tags
     * tag
     * componentMethod

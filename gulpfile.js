@@ -46,6 +46,7 @@ gulp.task('create-user-components', function (done) {
     userComponentSet['methods'] = componentMethods;
     userComponentSet['fetch'] = userComponentJSON.fetch;
     userComponentSet['lifeCycleMethods'] = userComponentJSON.lifeCycleMethods;
+    userComponentSet['renderBeforeReturn'] = userComponentJSON.renderBeforeReturn;
     userComponents.push(userComponentSet);
   });
   _createUserComponentFile(userComponents);
@@ -330,6 +331,8 @@ let _createUserComponentFile = function (userComponents, prefix='') {
     fileBuffer = _replaceTag('COMOPNENT_FUNCTION', userComponentMethod, fileBuffer);
     let renderFetchDone = _userPageIndexFetchDone(userComponentSet);
     fileBuffer = _replaceTag('RENDER_FETCHDONE', renderFetchDone, fileBuffer);
+    let renderBeforeReturn = _userPageIndexRenderBeforeReturn(userComponentSet);
+    fileBuffer = _replaceTag('RENDER_BEFORE_RETURN', renderBeforeReturn, fileBuffer);
     let userComponentImportDeclaration = _importComponentDeclaration(userComponentImportComponents);
     fileBuffer = _replaceTag('IMPORT_COMPONENTS', userComponentImportDeclaration, fileBuffer);
     let userComopnentDefaultImportDeclaration = _importDefaultImportComponentDeclaration(userComponentDefaultImportComponents);
@@ -489,6 +492,7 @@ let _pageDataSet = function (groupName, pageData, childName) {
   result['lifeCycleMethods'] = pageData.lifeCycleMethods;
   result['layout'] = pageData.layout;
   result['fetch'] = pageData.fetch;
+  result['renderBeforeReturn'] = pageData.renderBeforeReturn;
   return result;
 }
 
@@ -560,6 +564,8 @@ let _createUserPageIndexFile = function (pageDirectories, prefix='') {
     fileBuffer = _replaceTag('FETCH_DATA', fetchData, fileBuffer);
     let renderFetchDone = _userPageIndexFetchDone(pageDirectoryInfo);
     fileBuffer = _replaceTag('RENDER_FETCHDONE', renderFetchDone, fileBuffer);
+    let renderBeforeReturn = _userPageIndexRenderBeforeReturn(pageDirectoryInfo);
+    fileBuffer = _replaceTag('RENDER_BEFORE_RETURN', renderBeforeReturn, fileBuffer);
     fileBuffer = _replaceTag('TITLE_PARENT', _caption(pageDirectoryInfo.parent), fileBuffer);
     fileBuffer = _replaceTag('TITLE_CHILD', _caption(pageDirectoryInfo.child), fileBuffer);
     let pageImportComponents = [], pageDefaultImportComponents = [];
@@ -618,6 +624,16 @@ let _userPageIndexFetchDone = function (pageDataSet) {
   });
   let fetchDone = `if (${fetchDoneCondition}) { return <React.Fragment />;}`;
   return fetchDone;
+}
+
+let _userPageIndexRenderBeforeReturn = function (pageDataSet) {
+  let functionName = '_userPageIndexRenderBeforeReturn()';
+  if (_isSet(pageDataSet, 'renderBeforeReturn', functionName) === false) return '';
+  let renderBeforeReturn = '';
+  _.forEach(pageDataSet.renderBeforeReturn, (code) => {
+    renderBeforeReturn += (renderBeforeReturn?'\n': '') + code;
+  });
+  return renderBeforeReturn;
 }
 
 let _importComponentDeclaration = function (userPageImportComponents) {

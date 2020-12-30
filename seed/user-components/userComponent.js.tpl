@@ -12,6 +12,7 @@ class <!--@@COMOPNENT_NAME--> extends Component {
   <!--@@FETCH_DATA-->
   render() {
     <!--@@RENDER_FETCHDONE-->
+    <!--@@RENDER_BEFORE_RETURN-->
     return (
       <React.Fragment>
       <!--@@RENDER_HTML-->
