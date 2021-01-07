@@ -55,6 +55,7 @@ class Navbar extends Component {
   };
 
   render() {
+    const query = new URL(document.location.href).search;
     return (
       <React.Fragment>
         <div className="topnav">
