@@ -65,7 +65,7 @@ class Navbar extends Component {
                 <ul className="navbar-nav">
 
                   <li className="nav-item dropdown">
-                    <Link className="nav-link dropdown-toggle arrow-none" onClick={e => { e.preventDefault(); this.setState({ isDashboard: !this.state.isDashboard }); }} to="dashboard">
+                    <Link className="nav-link dropdown-toggle arrow-none" onClick={e => { e.preventDefault(); this.setState({ isDashboard: !this.state.isDashboard }); }} to={"/dashboard" + query}>
                       <i className="bx bx-home-circle mr-2"></i>{this.props.t('Dashboard')} {this.props.menuOpen}<div className="arrow-down"></div>
                     </Link>
                     <div className={classname("dropdown-menu", { show: this.state.isDashboard })}>
