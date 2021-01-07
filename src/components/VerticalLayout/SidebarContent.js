@@ -69,6 +69,7 @@ class SidebarContent extends Component {
   };
 
   render() {
+    const query = new URL(document.location.href).search;
     return (
       <React.Fragment>
         <div id="sidebar-menu">
@@ -87,29 +88,56 @@ class SidebarContent extends Component {
                   <Link to="/dashboard">{this.props.t("Default")}</Link>
                 </li>
                 <li>
-                  <Link to="/dashboard1">{this.props.t("Dashboard1")}</Link>
+                  <Link to={"/dashboard1" + query}>
+                    {this.props.t("Dashboard1")}
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/dashboard2">{this.props.t("Dashboard2")}</Link>
+                  <Link to={"/dashboard2" + query}>
+                    {this.props.t("Dashboard2")}
+                  </Link>
                 </li>
               </ul>
             </li>
 
+            <li className="menu-title">{this.props.t("Base")}</li>
+            <li>
+              <Link to={"base-home" + query} className=" waves-effect">
+                <i className="bx bx-planet"></i>
+                <span>{this.props.t("Home")}</span>
+              </Link>
+            </li>
+            <li>
+              <Link to={"base-user" + query} className=" waves-effect">
+                <i className="bx bx-planet"></i>
+                <span>{this.props.t("User")}</span>
+              </Link>
+            </li>
+            <li>
+              <Link to={"base-order" + query} className=" waves-effect">
+                <i className="bx bx-planet"></i>
+                <span>{this.props.t("Order")}</span>
+              </Link>
+            </li>
+
             <li className="menu-title">{this.props.t("Apps")}</li>
             <li>
-              <Link to="apps-calendar" className=" waves-effect">
+              <Link to={"apps-calendar" + query} className=" waves-effect">
                 <i className="bx bx-calendar"></i>
                 <span>{this.props.t("Calendar")}</span>
               </Link>
             </li>
             <li>
-              <Link to="apps-attached-files" className=" waves-effect">
+              <Link
+                to={"apps-attached-files" + query}
+                className=" waves-effect"
+              >
                 <i className="bx bx-file-blank"></i>
                 <span>{this.props.t("Attached Files")}</span>
               </Link>
             </li>
             <li>
-              <Link to="apps-sales" className=" waves-effect">
+              <Link to={"apps-sales" + query} className=" waves-effect">
                 <i className="bx bx-bar-chart-alt-2"></i>
                 <span>{this.props.t("Sales")}</span>
               </Link>
@@ -121,12 +149,14 @@ class SidebarContent extends Component {
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="apps-status-status-list">
+                  <Link to={"apps-status-status-list" + query}>
                     {this.props.t("Status List")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="apps-status-status">{this.props.t("Status")}</Link>
+                  <Link to={"apps-status-status" + query}>
+                    {this.props.t("Status")}
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -137,10 +167,14 @@ class SidebarContent extends Component {
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="apps-email-inbox">{this.props.t("Inbox")}</Link>
+                  <Link to={"apps-email-inbox" + query}>
+                    {this.props.t("Inbox")}
+                  </Link>
                 </li>
                 <li>
-                  <Link to="apps-email-read">{this.props.t("Read")}</Link>
+                  <Link to={"apps-email-read" + query}>
+                    {this.props.t("Read")}
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -151,22 +185,22 @@ class SidebarContent extends Component {
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="apps-ecommerce-products">
+                  <Link to={"apps-ecommerce-products" + query}>
                     {this.props.t("Products")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="apps-ecommerce-product-detail">
+                  <Link to={"apps-ecommerce-product-detail" + query}>
                     {this.props.t("Product Detail")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="apps-ecommerce-orders">
+                  <Link to={"apps-ecommerce-orders" + query}>
                     {this.props.t("Orders")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="apps-ecommerce-customers">
+                  <Link to={"apps-ecommerce-customers" + query}>
                     {this.props.t("Customers")}
                   </Link>
                 </li>
@@ -175,19 +209,19 @@ class SidebarContent extends Component {
 
             <li className="menu-title">{this.props.t("News")}</li>
             <li>
-              <Link to="news-entertainment" className=" waves-effect">
+              <Link to={"news-entertainment" + query} className=" waves-effect">
                 <i className="bx bx-happy-heart-eyes"></i>
                 <span>{this.props.t("Entertainment")}</span>
               </Link>
             </li>
             <li>
-              <Link to="news-politics" className=" waves-effect">
+              <Link to={"news-politics" + query} className=" waves-effect">
                 <i className="bx bx-message-square-dots"></i>
                 <span>{this.props.t("Politics")}</span>
               </Link>
             </li>
             <li>
-              <Link to="news-breaking-news" className=" waves-effect">
+              <Link to={"news-breaking-news" + query} className=" waves-effect">
                 <i className="bx bx-news"></i>
                 <span>{this.props.t("Breaking News")}</span>
               </Link>
@@ -195,13 +229,13 @@ class SidebarContent extends Component {
 
             <li className="menu-title">{this.props.t("Menux")}</li>
             <li>
-              <Link to="menux-menuxx" className=" waves-effect">
+              <Link to={"menux-menuxx" + query} className=" waves-effect">
                 <i className="bx bx-receipt"></i>
                 <span>{this.props.t("Menuxx")}</span>
               </Link>
             </li>
             <li>
-              <Link to="menux-menuxxx" className=" waves-effect">
+              <Link to={"menux-menuxxx" + query} className=" waves-effect">
                 <i className="bx bx-briefcase-alt-2"></i>
                 <span>{this.props.t("Menuxxx")}</span>
               </Link>
@@ -213,17 +247,17 @@ class SidebarContent extends Component {
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="menux-maps-google-maps">
+                  <Link to={"menux-maps-google-maps" + query}>
                     {this.props.t("Google Maps")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="menux-maps-vector-maps">
+                  <Link to={"menux-maps-vector-maps" + query}>
                     {this.props.t("Vector Maps")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="menux-maps-leaflet-maps">
+                  <Link to={"menux-maps-leaflet-maps" + query}>
                     {this.props.t("Leaflet Maps")}
                   </Link>
                 </li>
@@ -236,22 +270,22 @@ class SidebarContent extends Component {
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="menux-ecommerce-products">
+                  <Link to={"menux-ecommerce-products" + query}>
                     {this.props.t("Products")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="menux-ecommerce-product-detail">
+                  <Link to={"menux-ecommerce-product-detail" + query}>
                     {this.props.t("Product Detail")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="menux-ecommerce-orders">
+                  <Link to={"menux-ecommerce-orders" + query}>
                     {this.props.t("Orders")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="menux-ecommerce-customers">
+                  <Link to={"menux-ecommerce-customers" + query}>
                     {this.props.t("Customers")}
                   </Link>
                 </li>
@@ -260,19 +294,19 @@ class SidebarContent extends Component {
 
             <li className="menu-title">{this.props.t("Settings")}</li>
             <li>
-              <Link to="settings-profile" className=" waves-effect">
+              <Link to={"settings-profile" + query} className=" waves-effect">
                 <i className="bx bx-user-circle"></i>
                 <span>{this.props.t("Profile")}</span>
               </Link>
             </li>
             <li>
-              <Link to="settings-my-wallet" className=" waves-effect">
+              <Link to={"settings-my-wallet" + query} className=" waves-effect">
                 <i className="bx bx-user-circle"></i>
                 <span>{this.props.t("My Wallet")}</span>
               </Link>
             </li>
             <li>
-              <Link to="settings-settings" className=" waves-effect">
+              <Link to={"settings-settings" + query} className=" waves-effect">
                 <i className="bx bx-user-circle"></i>
                 <span>{this.props.t("Settings")}</span>
               </Link>

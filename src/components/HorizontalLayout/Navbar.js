@@ -55,6 +55,7 @@ class Navbar extends Component {
   };
 
   render() {
+    const query = new URL(document.location.href).search;
     return (
       <React.Fragment>
         <div className="topnav">
@@ -90,11 +91,45 @@ class Navbar extends Component {
                       <Link to="index" className="dropdown-item">
                         {this.props.t("Default")}
                       </Link>
-                      <Link to="Dashboard1" className="dropdown-item">
+                      <Link
+                        to={"/Dashboard1" + query}
+                        className="dropdown-item"
+                      >
                         {this.props.t("Dashboard 1")}
                       </Link>
-                      <Link to="Dashboard2" className="dropdown-item">
+                      <Link
+                        to={"/Dashboard2" + query}
+                        className="dropdown-item"
+                      >
                         {this.props.t("Dashboard 2")}
+                      </Link>
+                    </div>
+                  </li>
+                  <li className="nav-item dropdown">
+                    <Link
+                      to="/#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        this.setState({ baseState: !this.state.baseState });
+                      }}
+                      className="nav-link dropdown-toggle arrow-none"
+                    >
+                      <i className="bx bx-customize mr-2"></i>
+                      {this.props.t("Base")} <div className="arrow-down"></div>
+                    </Link>
+                    <div
+                      className={classname("dropdown-menu", {
+                        show: this.state.baseState,
+                      })}
+                    >
+                      <Link to={"base-home" + query} className="dropdown-item">
+                        {this.props.t("Home")}
+                      </Link>
+                      <Link to={"base-user" + query} className="dropdown-item">
+                        {this.props.t("User")}
+                      </Link>
+                      <Link to={"base-order" + query} className="dropdown-item">
+                        {this.props.t("Order")}
                       </Link>
                     </div>
                   </li>
@@ -115,13 +150,19 @@ class Navbar extends Component {
                         show: this.state.appsState,
                       })}
                     >
-                      <Link to="apps-calendar" className="dropdown-item">
+                      <Link
+                        to={"apps-calendar" + query}
+                        className="dropdown-item"
+                      >
                         {this.props.t("Calendar")}
                       </Link>
-                      <Link to="apps-attached-files" className="dropdown-item">
+                      <Link
+                        to={"apps-attached-files" + query}
+                        className="dropdown-item"
+                      >
                         {this.props.t("Attached Files")}
                       </Link>
-                      <Link to="apps-sales" className="dropdown-item">
+                      <Link to={"apps-sales" + query} className="dropdown-item">
                         {this.props.t("Sales")}
                       </Link>
                       <div className="dropdown">
@@ -144,13 +185,13 @@ class Navbar extends Component {
                           })}
                         >
                           <Link
-                            to="apps-status-status-list"
+                            to={"apps-status-status-list" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Status List")}
                           </Link>
                           <Link
-                            to="apps-status-status"
+                            to={"apps-status-status" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Status")}
@@ -176,10 +217,16 @@ class Navbar extends Component {
                             show: this.state.emailState,
                           })}
                         >
-                          <Link to="apps-email-inbox" className="dropdown-item">
+                          <Link
+                            to={"apps-email-inbox" + query}
+                            className="dropdown-item"
+                          >
                             {this.props.t("Inbox")}
                           </Link>
-                          <Link to="apps-email-read" className="dropdown-item">
+                          <Link
+                            to={"apps-email-read" + query}
+                            className="dropdown-item"
+                          >
                             {this.props.t("Read")}
                           </Link>
                         </div>
@@ -204,25 +251,25 @@ class Navbar extends Component {
                           })}
                         >
                           <Link
-                            to="apps-ecommerce-products"
+                            to={"apps-ecommerce-products" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Products")}
                           </Link>
                           <Link
-                            to="apps-ecommerce-product-detail"
+                            to={"apps-ecommerce-product-detail" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Product Detail")}
                           </Link>
                           <Link
-                            to="apps-ecommerce-orders"
+                            to={"apps-ecommerce-orders" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Orders")}
                           </Link>
                           <Link
-                            to="apps-ecommerce-customers"
+                            to={"apps-ecommerce-customers" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Customers")}
@@ -248,13 +295,22 @@ class Navbar extends Component {
                         show: this.state.newsState,
                       })}
                     >
-                      <Link to="news-entertainment" className="dropdown-item">
+                      <Link
+                        to={"news-entertainment" + query}
+                        className="dropdown-item"
+                      >
                         {this.props.t("Entertainment")}
                       </Link>
-                      <Link to="news-politics" className="dropdown-item">
+                      <Link
+                        to={"news-politics" + query}
+                        className="dropdown-item"
+                      >
                         {this.props.t("Politics")}
                       </Link>
-                      <Link to="news-breaking-news" className="dropdown-item">
+                      <Link
+                        to={"news-breaking-news" + query}
+                        className="dropdown-item"
+                      >
                         {this.props.t("Breaking News")}
                       </Link>
                     </div>
@@ -276,10 +332,16 @@ class Navbar extends Component {
                         show: this.state.menuxState,
                       })}
                     >
-                      <Link to="menux-menuxx" className="dropdown-item">
+                      <Link
+                        to={"menux-menuxx" + query}
+                        className="dropdown-item"
+                      >
                         {this.props.t("Menuxx")}
                       </Link>
-                      <Link to="menux-menuxxx" className="dropdown-item">
+                      <Link
+                        to={"menux-menuxxx" + query}
+                        className="dropdown-item"
+                      >
                         {this.props.t("Menuxxx")}
                       </Link>
                       <div className="dropdown">
@@ -300,19 +362,19 @@ class Navbar extends Component {
                           })}
                         >
                           <Link
-                            to="menux-maps-google-maps"
+                            to={"menux-maps-google-maps" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Google Maps")}
                           </Link>
                           <Link
-                            to="menux-maps-vector-maps"
+                            to={"menux-maps-vector-maps" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Vector Maps")}
                           </Link>
                           <Link
-                            to="menux-maps-leaflet-maps"
+                            to={"menux-maps-leaflet-maps" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Leaflet Maps")}
@@ -339,25 +401,25 @@ class Navbar extends Component {
                           })}
                         >
                           <Link
-                            to="menux-ecommerce-products"
+                            to={"menux-ecommerce-products" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Products")}
                           </Link>
                           <Link
-                            to="menux-ecommerce-product-detail"
+                            to={"menux-ecommerce-product-detail" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Product Detail")}
                           </Link>
                           <Link
-                            to="menux-ecommerce-orders"
+                            to={"menux-ecommerce-orders" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Orders")}
                           </Link>
                           <Link
-                            to="menux-ecommerce-customers"
+                            to={"menux-ecommerce-customers" + query}
                             className="dropdown-item"
                           >
                             {this.props.t("Customers")}
@@ -386,13 +448,22 @@ class Navbar extends Component {
                         show: this.state.settingsState,
                       })}
                     >
-                      <Link to="settings-profile" className="dropdown-item">
+                      <Link
+                        to={"settings-profile" + query}
+                        className="dropdown-item"
+                      >
                         {this.props.t("Profile")}
                       </Link>
-                      <Link to="settings-my-wallet" className="dropdown-item">
+                      <Link
+                        to={"settings-my-wallet" + query}
+                        className="dropdown-item"
+                      >
                         {this.props.t("My Wallet")}
                       </Link>
-                      <Link to="settings-settings" className="dropdown-item">
+                      <Link
+                        to={"settings-settings" + query}
+                        className="dropdown-item"
+                      >
                         {this.props.t("Settings")}
                       </Link>
                     </div>
