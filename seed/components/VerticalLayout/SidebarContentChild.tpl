@@ -1,1 +1,1 @@
-<li><Link to="<!--@@MENU_LINK-->">{this.props.t('<!--@@MENU_CAPTION-->') }</Link></li>
+<li><Link to={"<!--@@MENU_LINK-->" + query}>{this.props.t('<!--@@MENU_CAPTION-->') }</Link></li>
