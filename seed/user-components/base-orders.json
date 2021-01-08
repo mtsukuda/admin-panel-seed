@@ -1,5 +1,5 @@
 {
-  "componentName": "BaseOrder",
+  "componentName": "BaseOrders",
   "import": [
     {
       "name": "Card",
@@ -15,12 +15,6 @@
     },
     {
       "name": "CardTitle",
-      "from": "reactstrap",
-      "type": "package",
-      "props": []
-    },
-    {
-      "name": "Table",
       "from": "reactstrap",
       "type": "package",
       "props": []
@@ -78,7 +72,7 @@
           { "name": "orderData", "initial": "null" }
         ],
         "methods": [
-          { "name": "getOrders", "bind": false, "methodType": "plane-async", "args": [], "code": "const qs = queryParameters();console.log(qs);if (qs === null || qs.at === undefined || qs.rt === undefined) {baseRedirectToAuthorization();return;}await baseOrders(qs.at).then((data) => {console.log(data);this.setState({ orderData: { rows: data } });});await baseRefreshToken(qs.rt).then((data) => {console.log(data);if(data === null) {baseRedirectToAuthorization();return;}setQuery({ at: data.accessToken, rt: data.refreshToken });});" }
+          { "name": "getOrders", "bind": false, "methodType": "plane-async", "args": [], "code": "const qs = queryParameters();console.log(qs);if (qs === null || qs.at === undefined || qs.rt === undefined) {baseRedirectToAuthorization();return;}await baseOrders(qs.at).then((data) => {console.log(data);this.setState({ orderData: { columns: [{label: 'ID',field:'unique_key'},{label: '名前',field:'last_name'},{label: '',field:'first_name'}], rows: data } });});await baseRefreshToken(qs.rt).then((data) => {console.log(data);if(data === null) {baseRedirectToAuthorization();return;}setQuery({ at: data.accessToken, rt: data.refreshToken });});" }
         ]
       }
     },

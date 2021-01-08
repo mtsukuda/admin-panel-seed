@@ -1,36 +1,6 @@
 {
   "componentName": "BaseLaunchButton",
   "import": [
-    {
-      "name": "queryParameters",
-      "from": "../../helpers/Functions/url-parameters",
-      "type": "package",
-      "props": []
-    },
-    {
-      "name": "setQuery",
-      "from": "../../helpers/Functions/url-parameters",
-      "type": "package",
-      "props": []
-    },
-    {
-      "name": "deleteQuery",
-      "from": "../../helpers/Functions/url-parameters",
-      "type": "package",
-      "props": []
-    },
-    {
-      "name": "baseAccessToken",
-      "from": "../../helpers/Functions/base-auth",
-      "type": "package",
-      "props": []
-    },
-    {
-      "name": "baseRefreshToken",
-      "from": "../../helpers/Functions/base-auth",
-      "type": "package",
-      "props": []
-    }
   ],
   "tags": [
     {

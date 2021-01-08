@@ -8,9 +8,6 @@
       "props": []
     }
   ],
-  "renderBeforeReturn": [
-    "const query = new URL(document.location.href).search;"
-  ],
   "tags": [
     {
       "componentMethod": {
@@ -39,7 +36,7 @@
                 },
                 {
                   "tag": "Link",
-                  "props": ["color=\"secondary\"", "className=\"btn btn-outline-secondary waves-effect\"", "onClick={() => this.navigate(\"/base-order\")}"],
+                  "props": ["color=\"secondary\"", "className=\"btn btn-outline-secondary waves-effect\"", "onClick={() => this.navigate(\"/base-orders\")}"],
                   "content": "'注文'"
                 },
                 {

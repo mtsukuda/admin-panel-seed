@@ -20,12 +20,6 @@
       "props": []
     },
     {
-      "name": "Table",
-      "from": "reactstrap",
-      "type": "package",
-      "props": []
-    },
-    {
       "name": "BaseLaunchButton",
       "from": "../../components/UserCommon/BaseLaunchButton.js",
       "type": "default",
