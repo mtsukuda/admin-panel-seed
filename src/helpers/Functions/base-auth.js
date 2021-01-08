@@ -1,6 +1,12 @@
+const BASE_URL = process.env.REACT_APP_BASE_API_ENDPOINT;
+
+export function baseRedirectToAuthorization () {
+  window.location.href = window.location.origin + '/base-auth';
+}
+
 export async function baseAccessToken(code) {
   let result = null;
-  await fetch('https://2crpfwmpki.execute-api.ap-northeast-1.amazonaws.com/dev/access-token?code=' + code)
+  await fetch(BASE_URL + '/access-token?code=' + code)
     .then(res => res.json())
     .then(data => {
       if (data.statusCode === 200 && data.body.access_token !== undefined && data.body.refresh_token !== undefined) {
@@ -22,7 +28,7 @@ export async function baseAccessToken(code) {
 
 export async function baseRefreshToken(refreshToken) {
   let result = null;
-  await fetch('https://2crpfwmpki.execute-api.ap-northeast-1.amazonaws.com/dev/refresh-token?token=' + refreshToken)
+  await fetch(BASE_URL + '/refresh-token?token=' + refreshToken)
     .then(res => res.json())
     .then(data => {
       if (data.statusCode === 200 && data.body.access_token !== undefined && data.body.refresh_token !== undefined) {
@@ -32,6 +38,40 @@ export async function baseRefreshToken(refreshToken) {
           accessToken: data.body.access_token,
           refreshToken: data.body.refresh_token
         }
+      } else {
+        throw data;
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  return result;
+}
+
+export async function baseUserInfo(accessToken) {
+  let result = null;
+  await fetch(BASE_URL + '/user?at=' + accessToken)
+    .then(res => res.json())
+    .then(data => {
+      if (data.statusCode === 200 && data.body.user !== undefined) {
+        result = data.body.user;
+      } else {
+        throw data;
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  return result;
+}
+
+export async function baseOrders(accessToken) {
+  let result = null;
+  await fetch(BASE_URL + '/orders?at=' + accessToken)
+    .then(res => res.json())
+    .then(data => {
+      if (data.statusCode === 200 && data.body.orders !== undefined) {
+        result = data.body.orders;
       } else {
         throw data;
       }
