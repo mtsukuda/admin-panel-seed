@@ -1,0 +1,67 @@
+{
+  "componentName": "BaseNavigation",
+  "import": [
+    {
+      "name": "Link",
+      "from": "react-router-dom",
+      "type": "package",
+      "props": []
+    }
+  ],
+  "renderBeforeReturn": [
+    "const query = new URL(document.location.href).search;"
+  ],
+  "tags": [
+    {
+      "componentMethod": {
+        "states": [
+          { "name": "orderData", "initial": "null" }
+        ],
+        "methods": [
+          { "name": "navigate", "bind": false, "methodType": "plane", "args": ["to"], "code": "const url = new URL(document.location.href);window.location.href = url.origin + to + url.search;" }
+        ]
+      }
+    },
+    {
+      "tag": "div",
+      "props": ["className=\"btn-toolbar mb-2\"", "role=\"toolbar\"", "aria-label=\"Toolbar with button groups\""],
+      "child": {
+        "tags": [
+          {
+            "tag": "div",
+            "props": ["className=\"btn-group mr-2 btn-block\"", "role=\"group\"", "aria-label=\"First group\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "Link",
+                  "props": ["color=\"secondary\"", "className=\"btn btn-outline-secondary waves-effect\"", "onClick={() => this.navigate(\"/base-home\")}"],
+                  "content": "'ホーム'"
+                },
+                {
+                  "tag": "Link",
+                  "props": ["color=\"secondary\"", "className=\"btn btn-outline-secondary waves-effect\"", "onClick={() => this.navigate(\"/base-order\")}"],
+                  "content": "'注文'"
+                },
+                {
+                  "tag": "Link",
+                  "props": ["color=\"secondary\"", "className=\"btn btn-outline-secondary waves-effect\"", "onClick={() => this.navigate(\"/base-user\")}"],
+                  "content": "'Menu3'"
+                },
+                {
+                  "tag": "Link",
+                  "props": ["color=\"secondary\"", "className=\"btn btn-outline-secondary waves-effect\"", "onClick={() => this.navigate(\"/base-user\")}"],
+                  "content": "'Menu4'"
+                },
+                {
+                  "tag": "Link",
+                  "props": ["color=\"secondary\"", "className=\"btn btn-outline-secondary waves-effect\"", "onClick={() => this.navigate(\"/base-user\")}"],
+                  "content": "'Menu5'"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

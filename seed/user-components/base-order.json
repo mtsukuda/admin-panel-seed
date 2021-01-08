@@ -1,0 +1,112 @@
+{
+  "componentName": "BaseOrder",
+  "import": [
+    {
+      "name": "Card",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "CardBody",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "CardTitle",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "Table",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "queryParameters",
+      "from": "../../helpers/Functions/url-parameters",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "setQuery",
+      "from": "../../helpers/Functions/url-parameters",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "baseRedirectToAuthorization",
+      "from": "../../helpers/Functions/base-auth",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "baseRefreshToken",
+      "from": "../../helpers/Functions/base-auth",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "baseOrders",
+      "from": "../../helpers/Functions/base-auth",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "MDBDataTable",
+      "from": "mdbreact",
+      "type": "package",
+      "props": []
+    }
+  ],
+  "renderBeforeReturn": [
+    "if (this.state.orderData === null) {return <React.Fragment />;}"
+  ],
+  "lifeCycleMethods": [
+    {
+      "methodName": "componentDidMount",
+      "code": "this.getOrders();"
+    }
+  ],
+  "tags": [
+    {
+      "componentMethod": {
+        "states": [
+          { "name": "orderData", "initial": "null" }
+        ],
+        "methods": [
+          { "name": "getOrders", "bind": false, "methodType": "plane-async", "args": [], "code": "const qs = queryParameters();console.log(qs);if (qs === null || qs.at === undefined || qs.rt === undefined) {baseRedirectToAuthorization();return;}await baseOrders(qs.at).then((data) => {console.log(data);this.setState({ orderData: { rows: data } });});await baseRefreshToken(qs.rt).then((data) => {console.log(data);if(data === null) {baseRedirectToAuthorization();return;}setQuery({ at: data.accessToken, rt: data.refreshToken });});" }
+        ]
+      }
+    },
+    {
+      "tag": "Card",
+      "props": [],
+      "child": {
+        "tags": [
+          {
+            "tag": "CardBody",
+            "props": [],
+            "child": {
+              "tags": [
+                {
+                  "tag": "CardTitle",
+                  "props": ["className=\"mb-4\""],
+                  "content": "\"BASE 注文情報\""
+                },
+                {
+                  "tag": "MDBDataTable",
+                  "single": "yes",
+                  "props": ["responsive", "striped", "bordered", "data={this.state.orderData}"]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

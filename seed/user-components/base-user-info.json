@@ -1,0 +1,162 @@
+{
+  "componentName": "BaseUserInfo",
+  "import": [
+    {
+      "name": "Card",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "CardBody",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "CardTitle",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "Table",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "queryParameters",
+      "from": "../../helpers/Functions/url-parameters",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "setQuery",
+      "from": "../../helpers/Functions/url-parameters",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "baseRedirectToAuthorization",
+      "from": "../../helpers/Functions/base-auth",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "baseRefreshToken",
+      "from": "../../helpers/Functions/base-auth",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "baseUserInfo",
+      "from": "../../helpers/Functions/base-auth",
+      "type": "package",
+      "props": []
+    }
+  ],
+  "renderBeforeReturn": [
+  ],
+  "lifeCycleMethods": [
+    {
+      "methodName": "componentDidMount",
+      "code": "this.getUserInfo();"
+    }
+  ],
+  "tags": [
+    {
+      "componentMethod": {
+        "states": [
+          { "name": "userInfo", "initial": "\"\"" }
+        ],
+        "methods": [
+          { "name": "getUserInfo", "bind": false, "methodType": "plane-async", "args": [], "code": "const qs = queryParameters();console.log(qs);if (qs === null || qs.at === undefined || qs.rt === undefined) {baseRedirectToAuthorization();return;}await baseUserInfo(qs.at).then((data) => {console.log(data);this.setState({ userInfo: data });});await baseRefreshToken(qs.rt).then((data) => {console.log(data);if(data === null) {baseRedirectToAuthorization();return;}setQuery({ at: data.accessToken, rt: data.refreshToken });});" }
+        ]
+      }
+    },
+    {
+      "tag": "Card",
+      "props": [],
+      "child": {
+        "tags": [
+          {
+            "tag": "CardBody",
+            "props": [],
+            "child": {
+              "tags": [
+                {
+                  "tag": "CardTitle",
+                  "props": ["className=\"mb-4\""],
+                  "content": "\"BASE ユーザー情報\""
+                },
+                {
+                  "tag": "div",
+                  "props": ["className=\"table-responsive\""],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "Table",
+                        "props": ["className=\"table-nowrap mb-0\""],
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "tbody",
+                              "props": [],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "tr",
+                                    "props": [],
+                                    "child": {
+                                      "tags": [
+                                        {
+                                          "tag": "th",
+                                          "props": ["scope=\"row\""],
+                                          "content": "\"ショップロゴ\""
+                                        },
+                                        {
+                                          "tag": "td",
+                                          "props": [],
+                                          "rawContent": "yes",
+                                          "content": "<img class=\"img-fluid\" src={this.state.userInfo ? this.state.userInfo.logo : ''} />"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "tag": "tr",
+                                    "props": [],
+                                    "child": {
+                                      "tags": [
+                                        {
+                                          "tag": "th",
+                                          "props": ["scope=\"row\""],
+                                          "content": "\"ショップ名\""
+                                        },
+                                        {
+                                          "tag": "td",
+                                          "props": [],
+                                          "rawContent": "yes",
+                                          "content": "{this.state.userInfo ? this.state.userInfo.shop_name : ''}"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

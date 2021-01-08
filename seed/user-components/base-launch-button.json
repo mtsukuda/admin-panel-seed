@@ -32,31 +32,10 @@
       "props": []
     }
   ],
-  "renderBeforeReturn": [
-  ],
-  "lifeCycleMethods": [
-    {
-      "methodName": "componentDidMount",
-      "code": "const qs = queryParameters();if(qs !== null && qs.code !== undefined)this.setState({code: qs.code});this.getAccessToken();"
-    }
-  ],
   "tags": [
     {
-      "componentMethod": {
-        "states": [
-          { "name": "code", "initial": "\"\"" },
-          { "name": "accessToken", "initial": "\"\"" },
-          { "name": "refreshToken", "initial": "\"\"" }
-        ],
-        "methods": [
-          { "name": "getAccessToken", "bind": false, "methodType": "plane-async", "args": [], "code": "let qs = queryParameters();if (qs === null || qs.code === undefined) return;await baseAccessToken(qs.code).then(data => {console.log(data);this.setState({ accessToken: data.accessToken });this.setState({ refreshToken: data.refreshToken });});await baseRefreshToken(this.state.refreshToken).then(data => {console.log(data);});deleteQuery([\"code\"]);setQuery({\"at\": this.state.accessToken, \"rt\": this.state.refreshToken});" }
-        ]
-      }
-    },
-    {
       "tag": "p",
-      "rawContent": "yes",
-      "content": "CODE:&nbsp;<strong>{this.state.code}</strong>"
+      "content": "\"「Authorization BASE」ボタンをクリックして、BASEと連携してください。\""
     },
     {
       "tag": "div",

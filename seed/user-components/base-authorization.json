@@ -1,0 +1,70 @@
+{
+  "componentName": "BaseAuthorization",
+  "import": [
+    {
+      "name": "Card",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "CardBody",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "CardTitle",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "Table",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "BaseLaunchButton",
+      "from": "../../components/UserCommon/BaseLaunchButton.js",
+      "type": "default",
+      "props": []
+    }
+  ],
+  "tags": [
+    {
+      "tag": "Card",
+      "props": [],
+      "child": {
+        "tags": [
+          {
+            "tag": "CardBody",
+            "props": [],
+            "child": {
+              "tags": [
+                {
+                  "tag": "CardTitle",
+                  "props": ["className=\"mb-4\""],
+                  "content": "\"BASE 認証\""
+                },
+                {
+                  "tag": "div",
+                  "props": ["className=\"table-responsive\""],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "BaseLaunchButton",
+                        "props": ["href='https://api.thebase.in/1/oauth/authorize?response_type=code&client_id=d982eac722e2e2bb3d1185d69a1b38b0&redirect_uri=https%3A%2F%2Fadmin-panel-sample-202007.web.app%2Fbase-access-token&scope=read_users%20read_users_mail%20read_items%20read_orders%20read_savings%20write_items%20write_orders'"]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
