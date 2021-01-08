@@ -807,7 +807,7 @@ let _navbarDashboardLinks = function (dashboardList) {
   let result = '';
   dashboardList.forEach((line, index) => {
     let writeString = (index > 0 ? '\n' + SP(11):'')
-      + '<Link to="' + line.dir + '" className="dropdown-item">{this.props.t(\'' + _caption(line.child) + '\')}</Link>';
+      + '<Link to={"/' + line.dir + '" + query} className="dropdown-item">{this.props.t(\'' + _caption(line.child) + '\')}</Link>';
     // console.log(writeString);
     result += writeString;
   });
@@ -870,7 +870,7 @@ let _sidebarDashboardLinks = function (dashboardList) {
   dashboardList.forEach((line, index) => {
     let menuName = _.capitalize(line.child);
     let writeString = (index > 0 ? '\n' + SP(9):'')
-      + '<li><Link to="/' + line.child + '">{this.props.t(\'' + menuName + '\')}</Link></li>';
+      + '<li><Link to={"/' + line.child + '" + query}>{this.props.t(\'' + menuName + '\')}</Link></li>';
     console.log(writeString);
     result += writeString;
   });
