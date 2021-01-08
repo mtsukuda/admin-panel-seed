@@ -69,7 +69,7 @@ class Navbar extends Component {
                       <i className="bx bx-home-circle mr-2"></i>{this.props.t('Dashboard')} {this.props.menuOpen}<div className="arrow-down"></div>
                     </Link>
                     <div className={classname("dropdown-menu", { show: this.state.isDashboard })}>
-                      <Link to="index" className="dropdown-item">{this.props.t('Default')}</Link>
+                      <Link to={"index" + query} className="dropdown-item">{this.props.t('Default')}</Link>
                       <!--@@NAVBAR_DASHBOARD-->
                     </div>
                   </li>
