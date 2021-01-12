@@ -1,0 +1,144 @@
+{
+  "componentName": "BaseOrdersPagination",
+  "import": [
+    {
+      "name": "Link",
+      "from": "react-router-dom",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "queryParameters",
+      "from": "../../helpers/Functions/url-parameters",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "setQuery",
+      "from": "../../helpers/Functions/url-parameters",
+      "type": "package",
+      "props": []
+    }
+  ],
+  "lifeCycleMethods": [
+    {
+      "methodName": "componentDidMount",
+      "code": "this.getOffset();"
+    }
+  ],
+  "tags": [
+    {
+      "componentMethod": {
+        "states": [
+          { "name": "offset", "initial": "0" }
+        ],
+        "methods": [
+          { "name": "getOffset", "bind": false, "methodType": "plane", "args": [], "code": "const qs = queryParameters();console.log(qs);if (qs === null || qs.offset === undefined) {setQuery({ offset: \"0\" });} else {this.setState({\"offset\": qs.offset});}" },
+          { "name": "navigate", "bind": false, "methodType": "plane", "args": ["offset"], "code": "setQuery({ offset: offset });window.location.href = document.location.href;" }
+        ]
+      }
+    },
+    {
+      "tag": "nav",
+      "props": ["aria-label=\"Page navigation BASE orders\""],
+      "child": {
+        "tags": [
+          {
+            "tag": "ul",
+            "props": ["class=\"pagination justify-content-end\""],
+            "child": {
+              "tags": [
+                {
+                  "tag": "li",
+                  "props": ["class=\"page-item disabled\""],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "a",
+                        "props": ["class=\"page-link\"", "href=\"#\"", "tabindex=\"-1\""],
+                        "content": "\"Previous\"",
+                        "child": {
+                          "tags": [
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "tag": "{[...Array(this.state.offset.toNumber + 1)].map((e, i) => {",
+                  "close": "})}",
+                  "type": "raw",
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "return (",
+                        "close": ")",
+                        "type": "raw",
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "li",
+                              "props": ["class=\"page-item active\""],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "Link",
+                                    "props": ["class=\"page-link\"", "onClick={() => this.navigate({i})}"],
+                                    "content": "{i}",
+                                    "child": {
+                                      "tags": [
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "tag": "li",
+                  "props": ["class=\"page-item active\""],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "Link",
+                        "props": ["class=\"page-link\"", "onClick={() => this.navigate(\"0\")}"],
+                        "content": "\"1\"",
+                        "child": {
+                          "tags": [
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "tag": "li",
+                  "props": ["class=\"disabled\""],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "Link",
+                        "props": ["class=\"page-link\"", "onClick={() => this.navigate(\"1\")}"],
+                        "content": "\"Next\"",
+                        "child": {
+                          "tags": [
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
