@@ -92,9 +92,143 @@
                   "content": "\"BASE 注文情報\""
                 },
                 {
+                  "tag": "nav",
+                  "props": ["aria-label=\"Page navigation BASE orders\""],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "ul",
+                        "props": ["class=\"pagination justify-content-end\""],
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "li",
+                              "props": ["class=\"page-item disabled\""],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "a",
+                                    "props": ["class=\"page-link\"", "href=\"#\"", "tabindex=\"-1\""],
+                                    "content": "\"Previous\"",
+                                    "child": {
+                                      "tags": [
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "tag": "li",
+                              "props": ["class=\"page-item active\""],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "a",
+                                    "props": ["class=\"page-link\"", "href=\"#\""],
+                                    "content": "\"1\"",
+                                    "child": {
+                                      "tags": [
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "tag": "li",
+                              "props": ["class=\"disabled\""],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "a",
+                                    "props": ["class=\"page-link\"", "href=\"#\""],
+                                    "content": "\"Next\"",
+                                    "child": {
+                                      "tags": [
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
                   "tag": "MDBDataTable",
                   "single": "yes",
-                  "props": ["responsive", "striped", "bordered", "data={this.state.orderData}"]
+                  "props": ["responsive", "striped", "bordered", "data={this.state.orderData}", "searching={false}", "paging={false}"]
+                },
+                {
+                  "tag": "nav",
+                  "props": ["aria-label=\"Page navigation BASE orders\""],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "ul",
+                        "props": ["class=\"pagination justify-content-end\""],
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "li",
+                              "props": ["class=\"page-item disabled\""],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "a",
+                                    "props": ["class=\"page-link\"", "href=\"#\"", "tabindex=\"-1\""],
+                                    "content": "\"Previous\"",
+                                    "child": {
+                                      "tags": [
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "tag": "li",
+                              "props": ["class=\"page-item active\""],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "a",
+                                    "props": ["class=\"page-link\"", "href=\"#\""],
+                                    "content": "\"1\"",
+                                    "child": {
+                                      "tags": [
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "tag": "li",
+                              "props": ["class=\"disabled\""],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "a",
+                                    "props": ["class=\"page-link\"", "href=\"#\""],
+                                    "content": "\"Next\"",
+                                    "child": {
+                                      "tags": [
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
