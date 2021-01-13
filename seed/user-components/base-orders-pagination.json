@@ -26,11 +26,18 @@
       "code": "this.getOffset();"
     }
   ],
+  "renderBeforeReturn": [
+    "let paginationLength = Math.round(Number(this.state.offset)/Number(this.state.limit)) + 1;",
+    "let nextOffset = paginationLength * Number(this.state.limit);",
+    "let previousOffset = nextOffset - (Number(this.state.limit) * 2);",
+    "let liPreviousClass = paginationLength > 1 ? \"page-item\" : \"page-item disabled\";"
+  ],
   "tags": [
     {
       "componentMethod": {
         "states": [
-          { "name": "offset", "initial": "0" }
+          { "name": "offset", "initial": "0" },
+          { "name": "limit", "initial": "20" }
         ],
         "methods": [
           { "name": "getOffset", "bind": false, "methodType": "plane", "args": [], "code": "const qs = queryParameters();console.log(qs);if (qs === null || qs.offset === undefined) {setQuery({ offset: \"0\" });} else {this.setState({\"offset\": qs.offset});}" },
@@ -50,12 +57,12 @@
               "tags": [
                 {
                   "tag": "li",
-                  "props": ["class=\"page-item disabled\""],
+                  "props": ["class={liPreviousClass}"],
                   "child": {
                     "tags": [
                       {
-                        "tag": "a",
-                        "props": ["class=\"page-link\"", "href=\"#\"", "tabindex=\"-1\""],
+                        "tag": "Link",
+                        "props": ["class=\"page-link\"", "onClick={() => this.navigate(previousOffset)}", "tabindex=\"-1\""],
                         "content": "\"Previous\"",
                         "child": {
                           "tags": [
@@ -66,7 +73,7 @@
                   }
                 },
                 {
-                  "tag": "{[...Array(this.state.offset.toNumber + 1)].map((e, i) => {",
+                  "tag": "{[...Array(paginationLength)].map((e, i) => {let liClass =i === (paginationLength - 1) ? \"page-item active\" : \"page-item\";",
                   "close": "})}",
                   "type": "raw",
                   "child": {
@@ -79,38 +86,17 @@
                           "tags": [
                             {
                               "tag": "li",
-                              "props": ["class=\"page-item active\""],
+                              "props": ["class={liClass}"],
                               "child": {
                                 "tags": [
                                   {
                                     "tag": "Link",
-                                    "props": ["class=\"page-link\"", "onClick={() => this.navigate({i})}"],
-                                    "content": "{i}",
-                                    "child": {
-                                      "tags": [
-                                      ]
-                                    }
+                                    "props": ["class=\"page-link\"", "onClick={() => this.navigate((i * Number(this.state.limit))+(i === 0 ? 0 : 1))}"],
+                                    "content": "i + 1"
                                   }
                                 ]
                               }
                             }
-                          ]
-                        }
-                      }
-                    ]
-                  }
-                },
-                {
-                  "tag": "li",
-                  "props": ["class=\"page-item active\""],
-                  "child": {
-                    "tags": [
-                      {
-                        "tag": "Link",
-                        "props": ["class=\"page-link\"", "onClick={() => this.navigate(\"0\")}"],
-                        "content": "\"1\"",
-                        "child": {
-                          "tags": [
                           ]
                         }
                       }
@@ -124,7 +110,7 @@
                     "tags": [
                       {
                         "tag": "Link",
-                        "props": ["class=\"page-link\"", "onClick={() => this.navigate(\"1\")}"],
+                        "props": ["class=\"page-link\"", "onClick={() => this.navigate(nextOffset)}"],
                         "content": "\"Next\"",
                         "child": {
                           "tags": [
