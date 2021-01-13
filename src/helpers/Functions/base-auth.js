@@ -81,3 +81,20 @@ export async function baseOrders(accessToken) {
     });
   return result;
 }
+
+export async function baseNextOrders(accessToken, offset) {
+  let result = null;
+  await fetch(BASE_URL + '/next-orders?at=' + accessToken + '&offset=' + offset)
+    .then(res => res.json())
+    .then(data => {
+      if (data.statusCode === 200 && data.body.orders !== undefined) {
+        result = data.body.orders;
+      } else {
+        throw data;
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  return result;
+}
