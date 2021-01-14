@@ -20,4 +20,5 @@ class <!--@@COMOPNENT_NAME--> extends Component {
     );
   }
 }
+<!--@@DEFAULT_PROPS-->
 export default withNamespaces()(<!--@@COMOPNENT_NAME-->);
