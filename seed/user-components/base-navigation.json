@@ -8,6 +8,13 @@
       "props": []
     }
   ],
+  "renderBeforeReturn": [
+    "if (this.props.menu === null) {this.props.menu = [{to: \"/base-home\", caption: \"ホーム\"},{to: \"/base-orders\", caption: \"注文\"},{to: \"/base-menu3\", caption: \"MENU3\"},{to: \"/base-menu4\", caption: \"MENU4\"},{to: \"/base-menu5\", caption: \"MENU5\"}];}",
+    "const currentPath = new URL(document.location.href).pathname;"
+  ],
+  "defaultProps": [
+    { "name": "menu", "initial": "null"}
+  ],
   "tags": [
     {
       "componentMethod": {
@@ -30,29 +37,9 @@
             "child": {
               "tags": [
                 {
-                  "tag": "Link",
-                  "props": ["color=\"secondary\"", "className=\"btn btn-outline-secondary waves-effect\"", "onClick={() => this.navigate(\"/base-home\")}"],
-                  "content": "'ホーム'"
-                },
-                {
-                  "tag": "Link",
-                  "props": ["color=\"secondary\"", "className=\"btn btn-outline-secondary waves-effect\"", "onClick={() => this.navigate(\"/base-orders\")}"],
-                  "content": "'注文'"
-                },
-                {
-                  "tag": "Link",
-                  "props": ["color=\"secondary\"", "className=\"btn btn-outline-secondary waves-effect\"", "onClick={() => this.navigate(\"/base-user\")}"],
-                  "content": "'Menu3'"
-                },
-                {
-                  "tag": "Link",
-                  "props": ["color=\"secondary\"", "className=\"btn btn-outline-secondary waves-effect\"", "onClick={() => this.navigate(\"/base-user\")}"],
-                  "content": "'Menu4'"
-                },
-                {
-                  "tag": "Link",
-                  "props": ["color=\"secondary\"", "className=\"btn btn-outline-secondary waves-effect\"", "onClick={() => this.navigate(\"/base-user\")}"],
-                  "content": "'Menu5'"
+                  "tag": "{this.props.menu.map((line) => {let css = currentPath === line.to ? \"btn btn-outline-secondary waves-effect active\": \"btn btn-outline-secondary waves-effect \";return(<Link color=\"secondary\"className={css}onClick={() => this.navigate(line.to)}>{this.props.t(line.caption)}</Link>);",
+                  "close": "})}",
+                  "type": "raw"
                 }
               ]
             }
