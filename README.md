@@ -10,10 +10,15 @@
   * lifeCycleMethods
   * fetch
   * renderBeforeReturn []
+  * defaultProps []
+    * name
+    * initial
   * tags
     * tag
     * componentMethod
       * states []
+        * name
+        * initial
       * methods []
     * props []
     * noCR `yes`
