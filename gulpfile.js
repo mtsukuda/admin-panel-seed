@@ -47,6 +47,7 @@ gulp.task('create-user-components', function (done) {
     userComponentSet['fetch'] = userComponentJSON.fetch;
     userComponentSet['lifeCycleMethods'] = userComponentJSON.lifeCycleMethods;
     userComponentSet['renderBeforeReturn'] = userComponentJSON.renderBeforeReturn;
+    userComponentSet['defaultProps'] = userComponentJSON.defaultProps;
     userComponents.push(userComponentSet);
   });
   _createUserComponentFile(userComponents);
@@ -218,7 +219,8 @@ let _htmlTagRecursive = function (sauceJSON, tags, closeTag, type) {
         _htmlTagRecursive(component.child, tags, closeTag, component.type);
       } else if (_.isUndefined(component.single) === true) {
         let closeTagSet = {};
-        if (_.isUndefined(component.tag) === false) closeTagSet['close'] = component.tag;
+        if (_.isUndefined(component.type) === false) closeTagSet['type'] = component.type;
+        if (_.isUndefined(component.tag) === false) closeTagSet['close'] = _.isUndefined(component.close) === false ? component.close : component.tag;
         if (_.isUndefined(component.noCR) === false) closeTagSet['noCR'] = component.noCR;
         if (_.isUndefined(component.contentAT) === false) closeTagSet['contentAfterTag'] = component.contentAT;
         if (_.isUndefined(component.rawContent) === false) closeTagSet['rawContent'] = component.rawContent;
@@ -333,6 +335,8 @@ let _createUserComponentFile = function (userComponents, prefix='') {
     fileBuffer = _replaceTag('RENDER_FETCHDONE', renderFetchDone, fileBuffer);
     let renderBeforeReturn = _userPageIndexRenderBeforeReturn(userComponentSet);
     fileBuffer = _replaceTag('RENDER_BEFORE_RETURN', renderBeforeReturn, fileBuffer);
+    let defaultProps = _userPageIndexDefaultProps(userComponentSet);
+    fileBuffer = _replaceTag('DEFAULT_PROPS', defaultProps, fileBuffer);
     let userComponentImportDeclaration = _importComponentDeclaration(userComponentImportComponents);
     fileBuffer = _replaceTag('IMPORT_COMPONENTS', userComponentImportDeclaration, fileBuffer);
     let userComopnentDefaultImportDeclaration = _importDefaultImportComponentDeclaration(userComponentDefaultImportComponents);
@@ -566,6 +570,8 @@ let _createUserPageIndexFile = function (pageDirectories, prefix='') {
     fileBuffer = _replaceTag('RENDER_FETCHDONE', renderFetchDone, fileBuffer);
     let renderBeforeReturn = _userPageIndexRenderBeforeReturn(pageDirectoryInfo);
     fileBuffer = _replaceTag('RENDER_BEFORE_RETURN', renderBeforeReturn, fileBuffer);
+    let defaultProps = _userPageIndexDefaultProps(pageDirectoryInfo);
+    fileBuffer = _replaceTag('DEFAULT_PROPS', defaultProps, fileBuffer);
     fileBuffer = _replaceTag('TITLE_PARENT', _caption(pageDirectoryInfo.parent), fileBuffer);
     fileBuffer = _replaceTag('TITLE_CHILD', _caption(pageDirectoryInfo.child), fileBuffer);
     let pageImportComponents = [], pageDefaultImportComponents = [];
@@ -634,6 +640,17 @@ let _userPageIndexRenderBeforeReturn = function (pageDataSet) {
     renderBeforeReturn += (renderBeforeReturn?'\n': '') + code;
   });
   return renderBeforeReturn;
+}
+
+let _userPageIndexDefaultProps = function (pageDataSet) {
+  let functionName = '_userPageIndexDefaultProps()';
+  if (_isSet(pageDataSet, 'defaultProps', functionName) === false) return '';
+  let defaultProps = '';
+  _.forEach(pageDataSet.defaultProps, (propSet) => {
+    let decoration = (defaultProps.length > 0 ? ',' : '');
+    defaultProps += `${decoration}${propSet.name}: ${propSet.initial}`;
+  });
+  return `${pageDataSet.name}.defaultProps = {\n${defaultProps}\n}`;
 }
 
 let _importComponentDeclaration = function (userPageImportComponents) {
