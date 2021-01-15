@@ -119,7 +119,7 @@
                                           "tag": "td",
                                           "props": [],
                                           "rawContent": "yes",
-                                          "content": "<img class=\"img-fluid\" src={this.state.userInfo ? this.state.userInfo.logo : ''} />"
+                                          "content": "<img class=\"img-fluid\" src={this.state.userInfo ? this.state.userInfo.logo : ''} alt={this.state.userInfo ? this.state.userInfo.shop_name : ''} />"
                                         }
                                       ]
                                     }
