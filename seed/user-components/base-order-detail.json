@@ -1,0 +1,96 @@
+{
+  "componentName": "BaseOrderDetail",
+  "import": [
+    {
+      "name": "Card",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "CardBody",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "CardTitle",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "queryParameters",
+      "from": "../../helpers/Functions/url-parameters",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "setQuery",
+      "from": "../../helpers/Functions/url-parameters",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "baseRedirectToAuthorization",
+      "from": "../../helpers/Functions/base-auth",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "baseRefreshToken",
+      "from": "../../helpers/Functions/base-auth",
+      "type": "package",
+      "props": []
+    },
+    {
+      "name": "baseOrderDetail",
+      "from": "../../helpers/Functions/base-auth",
+      "type": "package",
+      "props": []
+    }
+  ],
+  "renderBeforeReturn": [
+    "if (this.state.orderDetailData === null) {return <React.Fragment />;}"
+  ],
+  "lifeCycleMethods": [
+    {
+      "methodName": "componentDidMount",
+      "code": "this.orderDetail();"
+    }
+  ],
+  "tags": [
+    {
+      "componentMethod": {
+        "states": [
+          { "name": "orderDetailData", "initial": "null" }
+        ],
+        "methods": [
+          { "name": "orderDetail", "bind": false, "methodType": "plane-async", "args": [], "code": "const qs = queryParameters();console.log(qs);if (qs === null || qs.at === undefined || qs.rt === undefined) {baseRedirectToAuthorization();return;}if (qs.unique_key !== undefined) {await baseOrderDetail(qs.at, qs.unique_key).then((data) => {console.log(data);this.setState({orderDetailData: data});});}await baseRefreshToken(qs.rt).then((data) => {console.log(data);if (data === null) {baseRedirectToAuthorization();return;}setQuery({ at: data.accessToken, rt: data.refreshToken });});" },
+          { "name": "navigate", "bind": false, "methodType": "plane", "args": ["offset"], "code": "" }
+        ]
+      }
+    },
+    {
+      "tag": "Card",
+      "props": [],
+      "child": {
+        "tags": [
+          {
+            "tag": "CardBody",
+            "props": [],
+            "child": {
+              "tags": [
+                {
+                  "tag": "CardTitle",
+                  "props": ["className=\"mb-4\""],
+                  "content": "\"BASE 注文情報\""
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
