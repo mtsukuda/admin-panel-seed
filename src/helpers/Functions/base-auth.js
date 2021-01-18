@@ -98,3 +98,20 @@ export async function baseNextOrders(accessToken, offset) {
     });
   return result;
 }
+
+export async function baseOrderDetail(accessToken, uniqueKey) {
+  let result = null;
+  await fetch(BASE_URL + '/order-detail?at=' + accessToken + '&unique_key=' + uniqueKey)
+    .then(res => res.json())
+    .then(data => {
+      if (data.statusCode === 200 && data.body.order !== undefined) {
+        result = data.body.order;
+      } else {
+        throw data;
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  return result;
+}
