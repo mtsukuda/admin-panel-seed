@@ -37,7 +37,7 @@
             "child": {
               "tags": [
                 {
-                  "tag": "{this.props.menu.map((line) => {let css = currentPath === line.to ? \"btn btn-outline-secondary waves-effect active\": \"btn btn-outline-secondary waves-effect \";return(<Link color=\"secondary\"className={css}onClick={() => this.navigate(line.to)}>{this.props.t(line.caption)}</Link>);",
+                  "tag": "{this.props.menu.map((line) => {let css = currentPath.substr(0, line.to.length) === line.to ? \"btn btn-outline-secondary waves-effect active\": \"btn btn-outline-secondary waves-effect \";return(<Link color=\"secondary\"className={css}onClick={() => this.navigate(line.to)}>{this.props.t(line.caption)}</Link>);",
                   "close": "})}",
                   "type": "raw"
                 }

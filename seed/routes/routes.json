@@ -88,6 +88,31 @@
     },
     {
       "type": "single",
+      "name": "orders-detail",
+      "bx": "planet",
+      "noNavigation": "yes",
+      "layout": [
+        {
+          "frame": "layout-plane",
+          "components": [
+            {
+              "name": "BaseNavigation",
+              "from": "../../components/UserCommon/BaseNavigation",
+              "type": "default",
+              "props": []
+            },
+            {
+              "name": "BaseOrderDetail",
+              "from": "../../components/UserCommon/BaseOrderDetail",
+              "type": "default",
+              "props": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "single",
       "name": "menu3",
       "bx": "planet",
       "noNavigation": "yes",
