@@ -20,6 +20,12 @@
       "props": []
     },
     {
+      "name": "Table",
+      "from": "reactstrap",
+      "type": "package",
+      "props": []
+    },
+    {
       "name": "queryParameters",
       "from": "../../helpers/Functions/url-parameters",
       "type": "package",
@@ -85,6 +91,106 @@
                   "tag": "CardTitle",
                   "props": ["className=\"mb-4\""],
                   "content": "\"BASE 注文情報\""
+                },
+                {
+                  "tag": "div",
+                  "props": ["className=\"table-responsive\""],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "Table",
+                        "props": ["className=\"table-nowrap mb-0\""],
+                        "child": {
+                          "tags": [
+                            {
+                              "tag": "tbody",
+                              "props": [],
+                              "child": {
+                                "tags": [
+                                  {
+                                    "tag": "tr",
+                                    "props": [],
+                                    "child": {
+                                      "tags": [
+                                        {
+                                          "tag": "th",
+                                          "props": ["scope=\"row\""],
+                                          "content": "\"氏名\""
+                                        },
+                                        {
+                                          "tag": "td",
+                                          "props": [],
+                                          "rawContent": "yes",
+                                          "content": "{this.state.orderDetailData ? this.state.orderDetailData.last_name + ' ' + this.state.orderDetailData.first_name : ''}"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "tag": "tr",
+                                    "props": [],
+                                    "child": {
+                                      "tags": [
+                                        {
+                                          "tag": "th",
+                                          "props": ["scope=\"row\""],
+                                          "content": "\"メールアドレス\""
+                                        },
+                                        {
+                                          "tag": "td",
+                                          "props": [],
+                                          "rawContent": "yes",
+                                          "content": "{this.state.orderDetailData ? this.state.orderDetailData.mail_address : ''}"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "tag": "tr",
+                                    "props": [],
+                                    "child": {
+                                      "tags": [
+                                        {
+                                          "tag": "th",
+                                          "props": ["scope=\"row\""],
+                                          "content": "\"TEL\""
+                                        },
+                                        {
+                                          "tag": "td",
+                                          "props": [],
+                                          "rawContent": "yes",
+                                          "content": "{this.state.orderDetailData ? this.state.orderDetailData.tel : ''}"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "tag": "tr",
+                                    "props": [],
+                                    "child": {
+                                      "tags": [
+                                        {
+                                          "tag": "th",
+                                          "props": ["scope=\"row\""],
+                                          "content": "\"都道府県\""
+                                        },
+                                        {
+                                          "tag": "td",
+                                          "props": [],
+                                          "rawContent": "yes",
+                                          "content": "{this.state.orderDetailData ? this.state.orderDetailData.prefecture : ''}"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }

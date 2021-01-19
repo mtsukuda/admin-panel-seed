@@ -26,35 +26,44 @@
       "content": "\"news entertainment service notice\""
     },
     {
-      "tag": "div",
-      "props": ["className=\"media mb-4\""],
+      "tag": "{",
+      "type": "raw",
+      "close": "}",
       "child": {
         "tags": [
           {
-            "tag": "img",
-            "props": ["className=\"d-flex align-self-start rounded mr-3\"", "src=\"https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFs-Knw39CLTsfp6KpenqJJAfQRbBTuU3XBr7Teh3UUfeLh8-p715i71yr8hTIPl61gwmOslh5Mh0ZP_Y40_y7yb2mpExKbJz7js5yua2VmBzjdjSzOUh-y1QnkX3ZKPFwQOzduWcNPNtBszclWvG_rg=\"", "alt=\"Skote\"", "width=\"64\""],
-            "noCR": "yes"
-          },
-          {
             "tag": "div",
-            "props": ["className=\"media-body\""],
+            "props": ["className=\"media mb-4\""],
             "child": {
               "tags": [
                 {
-                  "tag": "h5",
-                  "props": ["className=\"mt-0 font-16\""],
-                  "content": "\"スッピンを披露したダレノガレ明美 - ダレノガレ明美「30代のスッピン」披露　好きなところは唇「もともとピンクなんです」\"",
+                  "tag": "img",
+                  "props": ["className=\"d-flex align-self-start rounded mr-3\"", "src=\"https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFs-Knw39CLTsfp6KpenqJJAfQRbBTuU3XBr7Teh3UUfeLh8-p715i71yr8hTIPl61gwmOslh5Mh0ZP_Y40_y7yb2mpExKbJz7js5yua2VmBzjdjSzOUh-y1QnkX3ZKPFwQOzduWcNPNtBszclWvG_rg=\"", "alt=\"Skote\"", "width=\"64\""],
                   "noCR": "yes"
                 },
                 {
-                  "tag": "p",
-                  "props": [],
-                  "content": "\"ダレノガレはノーメークのため、いつもより柔らかい表情カメラを見つめているが、口元はリップを塗ったような艶やかさ。しかし「私の顔で好きなパーツは口の色なの。もともとピンクなんです。母親とそっくりな場所」と説明した。ダレノガレは日系ブラジル人の父親と、イタリア系ブラジル人の母親の間に生まれている。\""
-                },
-                {
-                  "tag": "p",
-                  "props": [],
-                  "content": "\"フォロワーも「羨ましいです」「お綺麗です」「素顔も素敵だ」「美しいです」「綺麗過ぎる」「口の色も凄く可愛いですね」と絶賛している。\""
+                  "tag": "div",
+                  "props": ["className=\"media-body\""],
+                  "child": {
+                    "tags": [
+                      {
+                        "tag": "h5",
+                        "props": ["className=\"mt-0 font-16\""],
+                        "content": "\"スッピンを披露したダレノガレ明美 - ダレノガレ明美「30代のスッピン」披露　好きなところは唇「もともとピンクなんです」\"",
+                        "noCR": "yes"
+                      },
+                      {
+                        "tag": "p",
+                        "props": [],
+                        "content": "\"ダレノガレはノーメークのため、いつもより柔らかい表情カメラを見つめているが、口元はリップを塗ったような艶やかさ。しかし「私の顔で好きなパーツは口の色なの。もともとピンクなんです。母親とそっくりな場所」と説明した。ダレノガレは日系ブラジル人の父親と、イタリア系ブラジル人の母親の間に生まれている。\""
+                      },
+                      {
+                        "tag": "p",
+                        "props": [],
+                        "content": "\"フォロワーも「羨ましいです」「お綺麗です」「素顔も素敵だ」「美しいです」「綺麗過ぎる」「口の色も凄く可愛いですね」と絶賛している。\""
+                      }
+                    ]
+                  }
                 }
               ]
             }

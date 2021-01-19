@@ -9,7 +9,7 @@ import { Row, Col, Dropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 
 // Import menuDropdown
 import LanguageDropdown from "../CommonForBoth/TopbarDropdown/LanguageDropdown";
-import NotificationDropdown from "../CommonForBoth/TopbarDropdown/NotificationDropdown";
+import TopbarNotification from "../UserCommon/TopbarNotification";
 import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu";
 
 import megamenuImg from "../../assets/images/megamenu-img.png";
@@ -410,7 +410,7 @@ class Header extends Component {
                 </button>
               </div>
 
-              <NotificationDropdown />
+              <TopbarNotification />
 
               <ProfileMenu />
 

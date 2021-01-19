@@ -1,5 +1,5 @@
 {
-  "componentName": "notice-list",
+  "componentName": "topbar-notification",
   "import": [
     {
       "name": "Link",
@@ -68,7 +68,7 @@
           { "name": "menu", "initial": false }
         ],
         "methods": [
-          { "name": "toggle", "bind": false, "methodType": "modal", "state": "menu", "args": [] }
+          { "name": "toggle", "bind": true, "methodType": "modal", "state": "menu", "args": [] }
         ]
       },
       "props": ["isOpen={this.state.menu}", "toggle={this.toggle}", "className=\"dropdown d-inline-block\"", "tag=\"li\""],
@@ -88,7 +88,7 @@
                   "tag": "span",
                   "noCR": "yes",
                   "props": ["className=\"badge badge-danger badge-pill\""],
-                  "content": "{this.state.notice.map().size}",
+                  "content": "{Object.keys(this.state.notice).length}",
                   "rawContent": "yes"
                 }
               ]
@@ -142,98 +142,98 @@
                       }
                     ]
                   }
-                }
-              ]
-            }
-          },
-          {
-            "tag": "SimpleBar",
-            "props": [
-              "style={{ height: \"230px\" }}"
-            ],
-            "child": {
-              "tags": [
+                },
                 {
-                  "tag": "{",
-                  "close": "}",
-                  "type": "raw",
+                  "tag": "SimpleBar",
+                  "props": [
+                    "style={{ height: \"230px\" }}"
+                  ],
                   "child": {
                     "tags": [
                       {
-                        "tag": "this.state.notice.map((line, i) =>",
-                        "close": ")",
+                        "tag": "{",
+                        "close": "}",
                         "type": "raw",
                         "child": {
                           "tags": [
                             {
-                              "tag": "Link",
-                              "props": ["to=\"\"", "className=\"text-reset notification-item\""],
+                              "tag": "this.state.notice.map((line) =>",
+                              "close": ")",
+                              "type": "raw",
                               "child": {
                                 "tags": [
                                   {
-                                    "tag": "div",
-                                    "props": ["className=\"media\""],
+                                    "tag": "Link",
+                                    "props": ["to=\"\"", "className=\"text-reset notification-item\""],
                                     "child": {
                                       "tags": [
                                         {
                                           "tag": "div",
-                                          "props": ["className=\"avatar-xs mr-3\""],
+                                          "props": ["className=\"media\""],
                                           "child": {
                                             "tags": [
                                               {
-                                                "tag": "span",
-                                                "props": ["className=\"avatar-title bg-primary rounded-circle font-size-16\""],
+                                                "tag": "div",
+                                                "props": ["className=\"avatar-xs mr-3\""],
                                                 "child": {
                                                   "tags": [
                                                     {
-                                                      "tag": "i",
-                                                      "props": ["className=\"bx bx-cart\""],
-                                                      "single": "yes"
+                                                      "tag": "span",
+                                                      "props": ["className=\"avatar-title bg-primary rounded-circle font-size-16\""],
+                                                      "child": {
+                                                        "tags": [
+                                                          {
+                                                            "tag": "i",
+                                                            "props": ["className=\"bx bx-cart\""],
+                                                            "single": "yes"
+                                                          }
+                                                        ]
+                                                      }
                                                     }
                                                   ]
                                                 }
-                                              }
-                                            ]
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  {
-                                    "tag": "div",
-                                    "props": ["className=\"media-body\""],
-                                    "child": {
-                                      "tags": [
-                                        {
-                                          "tag": "h6",
-                                          "props": ["className=\"mt-0 mb-1\""],
-                                          "content": "{line.title}",
-                                          "rawContent": "yes"
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  {
-                                    "tag": "div",
-                                    "props": ["className=\"font-size-12 text-muted\""],
-                                    "child": {
-                                      "tags": [
-                                        {
-                                          "tag": "p",
-                                          "props": ["className=\"mb-1\""],
-                                          "content": "{line.p1}",
-                                          "rawContent": "yes"
-                                        },
-                                        {
-                                          "tag": "p",
-                                          "props": ["className=\"mb-0\""],
-                                          "child": {
-                                            "tags": [
+                                              },
                                               {
-                                                "tag": "i",
-                                                "props": ["className=\"mdi mdi-clock-outline\""],
-                                                "noCR": "yes",
-                                                "contentAT": "'3 min ago'"
+                                                "tag": "div",
+                                                "props": ["className=\"media-body\""],
+                                                "child": {
+                                                  "tags": [
+                                                    {
+                                                      "tag": "h6",
+                                                      "props": ["className=\"mt-0 mb-1\""],
+                                                      "content": "{line.title}",
+                                                      "rawContent": "yes"
+                                                    },
+                                                    {
+                                                      "tag": "div",
+                                                      "props": ["className=\"font-size-12 text-muted\""],
+                                                      "child": {
+                                                        "tags": [
+                                                          {
+                                                            "tag": "p",
+                                                            "props": ["className=\"mb-1\""],
+                                                            "content": "{line.p1}",
+                                                            "rawContent": "yes"
+                                                          },
+                                                          {
+                                                            "tag": "p",
+                                                            "props": ["className=\"mb-0\""],
+                                                            "child": {
+                                                              "tags": [
+                                                                {
+                                                                  "tag": "i",
+                                                                  "props": ["className=\"mdi mdi-clock-outline\""],
+                                                                  "noCR": "yes",
+                                                                  "contentAT": "'3 min ago'"
+                                                                }
+                                                              ]
+                                                            }
+                                                          }
+                                                        ]
+                                                      }
+                                                    }
+                                                  ]
+                                                }
                                               }
                                             ]
                                           }
